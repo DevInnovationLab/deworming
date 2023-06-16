@@ -1,0 +1,232 @@
+study,outcome,followup_length,prevalence,country,mean_diff,se_mean_diff,clustered,N,group,prevalence_high
+"Alderman 2006","weight (kg)",26,.76214285,"Uganda",.2020619,.1170515,1,48,"mda_infected",1
+"Alderman 2006","weight (kg)",26,.76214285,"Uganda",.154,.08921,1,48,"mda",1
+"Alderman 2006","weight (kg)",26,.76214285,"Uganda",.0237555,.0137612,1,48,"mda_pw",1
+"Awasthi 1995/2008","height (cm)",24,.07666667,"India",15.52174,15.70643,1,50,"mda_infected",0
+"Awasthi 1995/2008","weight (kg)",24,.07666667,"India",12.78261,1.930435,1,50,"mda_infected",0
+"Awasthi 1995/2008","height (cm)",24,.07666667,"India",1.19,1.204159,1,50,"mda",0
+"Awasthi 1995/2008","weight (kg)",24,.07666667,"India",.98,.148,1,50,"mda",0
+"Awasthi 1995/2008","height (cm)",24,.07666667,"India",13.90175,14.06716,1,50,"mda_pw",0
+"Awasthi 1995/2008","weight (kg)",24,.07666667,"India",11.4485,1.728957,1,50,"mda_pw",0
+"Awasthi 2000","height (cm)",24,.12,"India",-3.416667,2.615806,0,1045,"mda_infected",0
+"Awasthi 2000","Haemoglobin (g/dL)",24,.12,"India",0,.3411957,0,1045,"mda_infected",0
+"Awasthi 2000","weight (kg)",24,.12,"India",-.4166667,.6333333,0,1045,"mda_infected",0
+"Awasthi 2000","height (cm)",24,.12,"India",-.41,.3138967,0,1045,"mda",0
+"Awasthi 2000","Haemoglobin (g/dL)",24,.12,"India",0,.0409435,0,1045,"mda",0
+"Awasthi 2000","weight (kg)",24,.12,"India",-.05,.076,0,1045,"mda",0
+"Awasthi 2000","height (cm)",24,.12,"India",-2.861898,2.191075,0,1045,"mda_pw",0
+"Awasthi 2000","Haemoglobin (g/dL)",24,.12,"India",0,.2857953,0,1045,"mda_pw",0
+"Awasthi 2000","weight (kg)",24,.12,"India",-.349012,.5304982,0,1045,"mda_pw",0
+"Awasthi 2001","height (cm)",18,.09,"India",4.444445,3.449238,1,124,"mda_infected",0
+"Awasthi 2001","weight (kg)",18,.09,"India",1.888889,.7218512,1,124,"mda_infected",0
+"Awasthi 2001","height (cm)",18,.09,"India",.4,.3104315,1,124,"mda",0
+"Awasthi 2001","weight (kg)",18,.09,"India",.17,.0649666,1,124,"mda",0
+"Awasthi 2001","height (cm)",18,.09,"India",3.900908,3.027411,1,124,"mda_pw",0
+"Awasthi 2001","weight (kg)",18,.09,"India",1.657886,.6335719,1,124,"mda_pw",0
+"Carmona-Fonseca 2015a","height (cm)",12,.45,"Colombia",-.1479586,.4298449,0,601,"mda_infected",1
+"Carmona-Fonseca 2015a","Haemoglobin (g/dL)",12,.45,"Colombia",.2859643,.2028697,0,586,"mda_infected",1
+"Carmona-Fonseca 2015a","weight (kg)",12,.45,"Colombia",.447013,.3024459,0,603,"mda_infected",1
+"Carmona-Fonseca 2015a","height (cm)",12,.45,"Colombia",-.0665814,.1934302,0,601,"mda",1
+"Carmona-Fonseca 2015a","Haemoglobin (g/dL)",12,.45,"Colombia",.1286839,.0912914,0,586,"mda",1
+"Carmona-Fonseca 2015a","weight (kg)",12,.45,"Colombia",.2011559,.1361007,0,603,"mda",1
+"Carmona-Fonseca 2015a","height (cm)",12,.45,"Colombia",-.0630877,.1832805,0,601,"mda_pw",1
+"Carmona-Fonseca 2015a","Haemoglobin (g/dL)",12,.45,"Colombia",.1219316,.0865011,0,586,"mda_pw",1
+"Carmona-Fonseca 2015a","weight (kg)",12,.45,"Colombia",.1906008,.1289592,0,603,"mda_pw",1
+"Carmona-Fonseca 2015b","height (cm)",12,.45,"Colombia",-.148539,.4299849,0,657,"mda_infected",1
+"Carmona-Fonseca 2015b","Haemoglobin (g/dL)",12,.45,"Colombia",.0155196,.1813839,0,624,"mda_infected",1
+"Carmona-Fonseca 2015b","weight (kg)",12,.45,"Colombia",.1376153,.2628352,0,658,"mda_infected",1
+"Carmona-Fonseca 2015b","height (cm)",12,.45,"Colombia",-.0668425,.1934932,0,657,"mda",1
+"Carmona-Fonseca 2015b","Haemoglobin (g/dL)",12,.45,"Colombia",.0069838,.0816228,0,624,"mda",1
+"Carmona-Fonseca 2015b","weight (kg)",12,.45,"Colombia",.0619269,.1182759,0,658,"mda",1
+"Carmona-Fonseca 2015b","height (cm)",12,.45,"Colombia",-.0633352,.1833402,0,657,"mda_pw",1
+"Carmona-Fonseca 2015b","Haemoglobin (g/dL)",12,.45,"Colombia",.0066174,.0773398,0,624,"mda_pw",1
+"Carmona-Fonseca 2015b","weight (kg)",12,.45,"Colombia",.0586775,.1120697,0,658,"mda_pw",1
+"Donnen 1998","height (cm)",12,.1,"Zaire",-11.9,5.522914,0,198,"mda_infected",0
+"Donnen 1998","mid-upper arm circumference (cm)",12,.1,"Zaire",-3.5,1.540474,0,198,"mda_infected",0
+"Donnen 1998","weight (kg)",12,.1,"Zaire",-4.5,1.665,0,198,"mda_infected",0
+"Donnen 1998","height (cm)",12,.1,"Zaire",-1.19,.5522914,0,198,"mda",0
+"Donnen 1998","mid-upper arm circumference (cm)",12,.1,"Zaire",-.35,.1540474,0,198,"mda",0
+"Donnen 1998","weight (kg)",12,.1,"Zaire",-.45,.1665,0,198,"mda",0
+"Donnen 1998","height (cm)",12,.1,"Zaire",-10.28523,4.773484,0,198,"mda_pw",0
+"Donnen 1998","mid-upper arm circumference (cm)",12,.1,"Zaire",-3.025069,1.33144,0,198,"mda_pw",0
+"Donnen 1998","weight (kg)",12,.1,"Zaire",-3.889374,1.439069,0,198,"mda_pw",0
+"Dossa 2001a","height (cm)",3,.58,"Benin",.862069,1.098476,0,65,"mda_infected",1
+"Dossa 2001a","Haemoglobin (g/dL)",3,.58,"Benin",.5172414,.5157267,0,70,"mda_infected",1
+"Dossa 2001a","mid-upper arm circumference (cm)",3,.58,"Benin",0,.3706931,0,65,"mda_infected",1
+"Dossa 2001a","weight (kg)",3,.58,"Benin",0,.4568965,0,65,"mda_infected",1
+"Dossa 2001a","height (cm)",3,.58,"Benin",.5,.6371161,0,65,"mda",1
+"Dossa 2001a","Haemoglobin (g/dL)",3,.58,"Benin",.3,.2991215,0,70,"mda",1
+"Dossa 2001a","mid-upper arm circumference (cm)",3,.58,"Benin",0,.215002,0,65,"mda",1
+"Dossa 2001a","weight (kg)",3,.58,"Benin",0,.265,0,65,"mda",1
+"Dossa 2001a","height (cm)",3,.58,"Benin",.2455222,.3128522,0,65,"mda_pw",1
+"Dossa 2001a","Haemoglobin (g/dL)",3,.58,"Benin",.1473133,.1468819,0,70,"mda_pw",1
+"Dossa 2001a","mid-upper arm circumference (cm)",3,.58,"Benin",0,.1055755,0,65,"mda_pw",1
+"Dossa 2001a","weight (kg)",3,.58,"Benin",0,.1301267,0,65,"mda_pw",1
+"Dossa 2001b","height (cm)",10,.58,"Benin",0,.5464181,0,64,"mda_infected",1
+"Dossa 2001b","Haemoglobin (g/dL)",10,.58,"Benin",.3448276,.5679966,0,68,"mda_infected",1
+"Dossa 2001b","mid-upper arm circumference (cm)",10,.58,"Benin",.1724138,.3234788,0,64,"mda_infected",1
+"Dossa 2001b","weight (kg)",10,.58,"Benin",0,.2387931,0,64,"mda_infected",1
+"Dossa 2001b","height (cm)",10,.58,"Benin",0,.3169225,0,64,"mda",1
+"Dossa 2001b","Haemoglobin (g/dL)",10,.58,"Benin",.2,.329438,0,68,"mda",1
+"Dossa 2001b","mid-upper arm circumference (cm)",10,.58,"Benin",.1,.1876177,0,64,"mda",1
+"Dossa 2001b","weight (kg)",10,.58,"Benin",0,.1385,0,64,"mda",1
+"Dossa 2001b","height (cm)",10,.58,"Benin",0,.155623,0,64,"mda_pw",1
+"Dossa 2001b","Haemoglobin (g/dL)",10,.58,"Benin",.0982089,.1617687,0,68,"mda_pw",1
+"Dossa 2001b","mid-upper arm circumference (cm)",10,.58,"Benin",.0491044,.0921286,0,64,"mda_pw",1
+"Dossa 2001b","weight (kg)",10,.58,"Benin",0,.0680096,0,64,"mda_pw",1
+"Freij 1979a (I)","mid-upper arm circumference (cm)",,.48913044,"Ethiopia",-.1146694,.2727121,0,,"tt_pw",1
+"Freij 1979a (I)","weight (kg)",,.48913044,"Ethiopia",.0764463,.5618289,0,,"tt_pw",1
+"Freij 1979a (I)","mid-upper arm circumference (cm)",,.48913044,"Ethiopia",-.3,.713474,0,,"tt",1
+"Freij 1979a (I)","weight (kg)",,.48913044,"Ethiopia",.2,1.469866,0,,"tt",1
+"Freij 1979b (I)","mid-upper arm circumference (cm)",,.48913044,"Ethiopia",.0382231,.1326844,0,,"tt_pw",1
+"Freij 1979b (I)","mid-upper arm circumference (cm)",,.48913044,"Ethiopia",.1,.3471311,0,,"tt",1
+"Gateff 1972","weight (kg)",8,.76214285,"Cameroon",.4556888,.1713116,0,280,"mda_infected",1
+"Gateff 1972","weight (kg)",8,.76214285,"Cameroon",.3473,.1305639,0,280,"mda",1
+"Gateff 1972","weight (kg)",8,.76214285,"Cameroon",.0535734,.0201404,0,280,"mda_pw",1
+"Gupta 1982a","height (cm)",12,.62,"Guatemala",-.1535484,.7163958,0,78,"mda_infected",1
+"Gupta 1982a","weight (kg)",12,.62,"Guatemala",.0429032,.2825937,0,78,"mda_infected",1
+"Gupta 1982a","height (cm)",12,.62,"Guatemala",-.0952,.4441654,0,78,"mda",1
+"Gupta 1982a","weight (kg)",12,.62,"Guatemala",.0266,.1752081,0,78,"mda",1
+"Gupta 1982a","height (cm)",12,.62,"Guatemala",-.0375438,.1751646,0,78,"mda_pw",1
+"Gupta 1982a","weight (kg)",12,.62,"Guatemala",.0104902,.0690964,0,78,"mda_pw",1
+"Gupta 1982b","height (cm)",12,.59,"Guatemala",-.0494915,.8029065,0,81,"mda_infected",1
+"Gupta 1982b","weight (kg)",12,.59,"Guatemala",.2194915,.2503397,0,81,"mda_infected",1
+"Gupta 1982b","height (cm)",12,.59,"Guatemala",-.0292,.4737148,0,81,"mda",1
+"Gupta 1982b","weight (kg)",12,.59,"Guatemala",.1295,.1477004,0,81,"mda",1
+"Gupta 1982b","height (cm)",12,.59,"Guatemala",-.0135889,.2204545,0,81,"mda_pw",1
+"Gupta 1982b","weight (kg)",12,.59,"Guatemala",.0602659,.0687359,0,81,"mda_pw",1
+"Hall 2006","height (cm)",24,.84,"Vietnam",.1061879,.0977601,1,80,"mda_infected",1
+"Hall 2006","mid-upper arm circumference (cm)",24,.84,"Vietnam",.9454827,.3741407,1,80,"mda_infected",1
+"Hall 2006","weight (kg)",24,.84,"Vietnam",.0645637,.0694582,1,80,"mda_infected",1
+"Hall 2006","height (cm)",24,.84,"Vietnam",.0891978,.0821185,1,80,"mda",1
+"Hall 2006","mid-upper arm circumference (cm)",24,.84,"Vietnam",.7942054,.3142782,1,80,"mda",1
+"Hall 2006","weight (kg)",24,.84,"Vietnam",.0542335,.0583449,1,80,"mda",1
+"Hall 2006","height (cm)",24,.84,"Vietnam",.0065841,.0060615,1,80,"mda_pw",1
+"Hall 2006","mid-upper arm circumference (cm)",24,.84,"Vietnam",.0586239,.0231983,1,80,"mda_pw",1
+"Hall 2006","weight (kg)",24,.84,"Vietnam",.0040032,.0043067,1,80,"mda_pw",1
+"Joseph 2015","height (cm)",12,.11,"Peru",.3636363,1.155143,0,777,"mda_infected",0
+"Joseph 2015","weight (kg)",12,.11,"Peru",.3636363,.4487517,0,777,"mda_infected",0
+"Joseph 2015","height (cm)",12,.11,"Peru",.04,.1270657,0,777,"mda",0
+"Joseph 2015","weight (kg)",12,.11,"Peru",.04,.0493627,0,777,"mda",0
+"Joseph 2015","height (cm)",12,.11,"Peru",.3094351,.9829651,0,777,"mda_pw",0
+"Joseph 2015","weight (kg)",12,.11,"Peru",.3094351,.3818637,0,777,"mda_pw",0
+"Kirwan 2010","Haemoglobin (g/dL)",14,.46,"Nigeria",.3695652,.2624073,0,320,"mda_infected",1
+"Kirwan 2010","Haemoglobin (g/dL)",14,.46,"Nigeria",.17,.1207074,0,320,"mda",1
+"Kirwan 2010","Haemoglobin (g/dL)",14,.46,"Nigeria",.1533651,.1088959,0,320,"mda_pw",1
+"Kruger 1996a","height (cm)",11,.38,"South Africa",.2276316,.5734211,0,74,"mda_infected",1
+"Kruger 1996a","Haemoglobin (g/dL)",11,.38,"South Africa",-.0526316,.4054728,0,74,"mda_infected",1
+"Kruger 1996a","weight (kg)",11,.38,"South Africa",-.9886842,.6521053,0,74,"mda_infected",1
+"Kruger 1996a","height (cm)",11,.38,"South Africa",.0865,.2179,0,74,"mda",1
+"Kruger 1996a","Haemoglobin (g/dL)",11,.38,"South Africa",-.02,.1540797,0,74,"mda",1
+"Kruger 1996a","weight (kg)",11,.38,"South Africa",-.3757,.2478,0,74,"mda",1
+"Kruger 1996a","height (cm)",11,.38,"South Africa",.1156904,.2914327,0,74,"mda_pw",1
+"Kruger 1996a","Haemoglobin (g/dL)",11,.38,"South Africa",-.0267492,.2060755,0,74,"mda_pw",1
+"Kruger 1996a","weight (kg)",11,.38,"South Africa",-.502484,.3314228,0,74,"mda_pw",1
+"Kruger 1996b","height (cm)",11,.38,"South Africa",.5497369,.5463158,0,104,"mda_infected",1
+"Kruger 1996b","Haemoglobin (g/dL)",11,.38,"South Africa",.7105263,.3382782,0,104,"mda_infected",1
+"Kruger 1996b","weight (kg)",11,.38,"South Africa",1.035,.4894737,0,104,"mda_infected",1
+"Kruger 1996b","height (cm)",11,.38,"South Africa",.2089,.2076,0,104,"mda",1
+"Kruger 1996b","Haemoglobin (g/dL)",11,.38,"South Africa",.27,.1285457,0,104,"mda",1
+"Kruger 1996b","weight (kg)",11,.38,"South Africa",.3933,.186,0,104,"mda",1
+"Kruger 1996b","height (cm)",11,.38,"South Africa",.2793956,.2776569,0,104,"mda_pw",1
+"Kruger 1996b","Haemoglobin (g/dL)",11,.38,"South Africa",.3611144,.1719248,0,104,"mda_pw",1
+"Kruger 1996b","weight (kg)",11,.38,"South Africa",.5260233,.2487677,0,104,"mda_pw",1
+"Le Huong 2007a","Haemoglobin (g/dL)",6,.73,"Vietnam",-.109589,.1860375,0,161,"mda_infected",1
+"Le Huong 2007a","Haemoglobin (g/dL)",6,.73,"Vietnam",-.08,.1358073,0,161,"mda",1
+"Le Huong 2007a","Haemoglobin (g/dL)",6,.73,"Vietnam",-.0157502,.0267373,0,161,"mda_pw",1
+"Le Huong 2007b","Haemoglobin (g/dL)",6,.73,"Vietnam",.0410959,.1766757,0,165,"mda_infected",1
+"Le Huong 2007b","Haemoglobin (g/dL)",6,.73,"Vietnam",.03,.1289733,0,165,"mda",1
+"Le Huong 2007b","Haemoglobin (g/dL)",6,.73,"Vietnam",.0059063,.0253919,0,165,"mda_pw",1
+"Liu 2017","height (cm)",12,.31,"China",.2580645,1.135484,1,112,"mda_infected",1
+"Liu 2017","Haemoglobin (g/dL)",12,.31,"China",-.1387097,.3477199,1,112,"mda_infected",1
+"Liu 2017","weight (kg)",12,.31,"China",.0967742,.4112808,1,112,"mda_infected",1
+"Liu 2017","height (cm)",12,.31,"China",.08,.352,1,112,"mda",1
+"Liu 2017","Haemoglobin (g/dL)",12,.31,"China",-.043,.1077932,1,112,"mda",1
+"Liu 2017","weight (kg)",12,.31,"China",.03,.127497,1,112,"mda",1
+"Liu 2017","height (cm)",12,.31,"China",.1531168,.673714,1,112,"mda_pw",1
+"Liu 2017","Haemoglobin (g/dL)",12,.31,"China",-.0823003,.2063119,1,112,"mda_pw",1
+"Liu 2017","weight (kg)",12,.31,"China",.0574188,.2440243,1,112,"mda_pw",1
+"Miguel 2004","weight (kg)",12,.77,"Kenya",-.8571429,.3896104,1,50,"mda_infected",1
+"Miguel 2004","weight (kg)",12,.77,"Kenya",-.66,.3,1,50,"mda",1
+"Miguel 2004","weight (kg)",12,.77,"Kenya",-.0955162,.0434165,1,50,"mda_pw",1
+"Ndibazza 2012","height (cm)",60,.03,"Uganda",-7.666667,9.498861,0,1210,"mda_infected",0
+"Ndibazza 2012","Haemoglobin (g/dL)",60,.03,"Uganda",-2.333333,3.183091,0,1109,"mda_infected",0
+"Ndibazza 2012","weight (kg)",60,.03,"Uganda",.3333333,3.029094,0,1228,"mda_infected",0
+"Ndibazza 2012","height (cm)",60,.03,"Uganda",-.23,.2849658,0,1210,"mda",0
+"Ndibazza 2012","Haemoglobin (g/dL)",60,.03,"Uganda",-.07,.0954927,0,1109,"mda",0
+"Ndibazza 2012","weight (kg)",60,.03,"Uganda",.01,.0908728,0,1228,"mda",0
+"Ndibazza 2012","height (cm)",60,.03,"Uganda",-7.351611,9.108513,0,1210,"mda_pw",0
+"Ndibazza 2012","Haemoglobin (g/dL)",60,.03,"Uganda",-2.237447,3.052284,0,1109,"mda_pw",0
+"Ndibazza 2012","weight (kg)",60,.03,"Uganda",.3196352,2.904615,0,1228,"mda_pw",0
+"Ostwald 1984","height (cm)",6,.92,"Papua New Guinea",.326087,.2936098,0,86,"mda_infected",1
+"Ostwald 1984","Haemoglobin (g/dL)",6,.92,"Papua New Guinea",.326087,.3014453,0,70,"mda_infected",1
+"Ostwald 1984","weight (kg)",6,.92,"Papua New Guinea",.7608696,.4877578,0,87,"mda_infected",1
+"Ostwald 1984","height (cm)",6,.92,"Papua New Guinea",.3,.270121,0,86,"mda",1
+"Ostwald 1984","Haemoglobin (g/dL)",6,.92,"Papua New Guinea",.3,.2773297,0,70,"mda",1
+"Ostwald 1984","weight (kg)",6,.92,"Papua New Guinea",.7,.4487372,0,87,"mda",1
+"Ostwald 1984","height (cm)",6,.92,"Papua New Guinea",.0063937,.0057569,0,86,"mda_pw",1
+"Ostwald 1984","Haemoglobin (g/dL)",6,.92,"Papua New Guinea",.0063937,.0059105,0,70,"mda_pw",1
+"Ostwald 1984","weight (kg)",6,.92,"Papua New Guinea",.0149185,.0095636,0,87,"mda_pw",1
+"Rousham 1994","mid-upper arm circumference (cm)",18,.71,"Bangladesh",.1408451,.0818645,1,13,"mda_infected",1
+"Rousham 1994","mid-upper arm circumference (cm)",18,.71,"Bangladesh",.1,.0581238,1,13,"mda",1
+"Rousham 1994","mid-upper arm circumference (cm)",18,.71,"Bangladesh",.0226498,.013165,1,13,"mda_pw",1
+"Sarkar 2002 (I)","height (cm)",,.78523493,"Bangladesh",.0099863,.0260795,0,,"tt_pw",1
+"Sarkar 2002 (I)","weight (kg)",,.78523493,"Bangladesh",.0379478,.0150057,0,,"tt_pw",1
+"Sarkar 2002 (I)","height (cm)",,.78523493,"Bangladesh",.1,.2611536,0,,"tt",1
+"Sarkar 2002 (I)","weight (kg)",,.78523493,"Bangladesh",.38,.1502632,0,,"tt",1
+"Stephenson 1989 (I)","height (cm)",,.97000003,"Kenya",.002275,.0005092,0,,"tt_pw",1
+"Stephenson 1989 (I)","mid-upper arm circumference (cm)",,.97000003,"Kenya",.0018958,.000296,0,,"tt_pw",1
+"Stephenson 1989 (I)","weight (kg)",,.97000003,"Kenya",.0049291,.0005092,0,,"tt_pw",1
+"Stephenson 1989 (I)","height (cm)",,.97000003,"Kenya",.6,.1342982,0,,"tt",1
+"Stephenson 1989 (I)","mid-upper arm circumference (cm)",,.97000003,"Kenya",.5,.0780676,0,,"tt",1
+"Stephenson 1989 (I)","weight (kg)",,.97000003,"Kenya",1.3,.1342982,0,,"tt",1
+"Stephenson 1993","height (cm)",8.2,.88,"Kenya",-.1136364,.1850578,0,188,"mda_infected",1
+"Stephenson 1993","mid-upper arm circumference (cm)",8.2,.88,"Kenya",.4545455,.0733184,0,188,"mda_infected",1
+"Stephenson 1993","weight (kg)",8.2,.88,"Kenya",1.022727,.2093182,0,188,"mda_infected",1
+"Stephenson 1993","height (cm)",8.2,.88,"Kenya",-.1,.1628508,0,188,"mda",1
+"Stephenson 1993","mid-upper arm circumference (cm)",8.2,.88,"Kenya",.4,.0645202,0,188,"mda",1
+"Stephenson 1993","weight (kg)",8.2,.88,"Kenya",.9,.1842,0,188,"mda",1
+"Stephenson 1993","height (cm)",8.2,.88,"Kenya",-.0043884,.0071465,0,188,"mda_pw",1
+"Stephenson 1993","mid-upper arm circumference (cm)",8.2,.88,"Kenya",.0175534,.0028314,0,188,"mda_pw",1
+"Stephenson 1993","weight (kg)",8.2,.88,"Kenya",.0394952,.0080834,0,188,"mda_pw",1
+"Stoltzfus 1997a","height (cm)",12,.95,"Tanzania",.2296296,.0902969,1,12,"mda_infected",1
+"Stoltzfus 1997a","weight (kg)",12,.95,"Tanzania",.2460039,.1031484,1,12,"mda_infected",1
+"Stoltzfus 1997a","height (cm)",12,.95,"Tanzania",.2181481,.0857821,1,12,"mda",1
+"Stoltzfus 1997a","weight (kg)",12,.95,"Tanzania",.2337037,.097991,1,12,"mda",1
+"Stoltzfus 1997a","height (cm)",12,.95,"Tanzania",.0020286,.0007977,1,12,"mda_pw",1
+"Stoltzfus 1997a","weight (kg)",12,.95,"Tanzania",.0021733,.0009112,1,12,"mda_pw",1
+"Stoltzfus 1997b","height (cm)",12,.95,"Tanzania",-.0003377,.1031451,1,12,"mda_infected",1
+"Stoltzfus 1997b","weight (kg)",12,.95,"Tanzania",.1161754,.1462341,1,12,"mda_infected",1
+"Stoltzfus 1997b","height (cm)",12,.95,"Tanzania",-.0003208,.0979879,1,12,"mda",1
+"Stoltzfus 1997b","weight (kg)",12,.95,"Tanzania",.1103666,.1389223,1,12,"mda",1
+"Stoltzfus 1997b","height (cm)",12,.95,"Tanzania",-2.98e-06,.0009112,1,12,"mda_pw",1
+"Stoltzfus 1997b","weight (kg)",12,.95,"Tanzania",.0010263,.0012919,1,12,"mda_pw",1
+"Sur 2005","weight (kg)",9,.53,"India",.5471698,.1698113,0,682,"mda_infected",1
+"Sur 2005","weight (kg)",9,.53,"India",.29,.09,0,682,"mda",1
+"Sur 2005","weight (kg)",9,.53,"India",.1846554,.0573069,0,682,"mda_pw",1
+"Tee 2013 (I)","height (cm)",,.30578512,"Malaysia",-.0598546,.241817,0,,"tt_pw",1
+"Tee 2013 (I)","height (cm)",,.30578512,"Malaysia",-.1,.4040077,0,,"tt",1
+"Watkins 1996","height (cm)",6,.91,"Guatemala",.0659341,.1079501,0,227,"mda_infected",1
+"Watkins 1996","mid-upper arm circumference (cm)",6,.91,"Guatemala",.0879121,.0771505,0,207,"mda_infected",1
+"Watkins 1996","weight (kg)",6,.91,"Guatemala",.1428571,.1163736,0,226,"mda_infected",1
+"Watkins 1996","height (cm)",6,.91,"Guatemala",.06,.0982346,0,227,"mda",1
+"Watkins 1996","mid-upper arm circumference (cm)",6,.91,"Guatemala",.08,.070207,0,207,"mda",1
+"Watkins 1996","weight (kg)",6,.91,"Guatemala",.13,.1059,0,226,"mda",1
+"Watkins 1996","height (cm)",6,.91,"Guatemala",.0015758,.00258,0,227,"mda_pw",1
+"Watkins 1996","mid-upper arm circumference (cm)",6,.91,"Guatemala",.0021011,.0018439,0,207,"mda_pw",1
+"Watkins 1996","weight (kg)",6,.91,"Guatemala",.0034143,.0027814,0,226,"mda_pw",1
+"Willett 1979","weight (kg)",12,.53,"Tanzania",.3018868,.1598385,0,273,"mda_infected",1
+"Willett 1979","weight (kg)",12,.53,"Tanzania",.16,.0847144,0,273,"mda",1
+"Willett 1979","weight (kg)",12,.53,"Tanzania",.1018789,.0539413,0,273,"mda_pw",1
+"Wiria 2013","height (cm)",21,.76,"Indonesia",1.774079,.7036241,1,954,"mda_infected",1
+"Wiria 2013","weight (kg)",21,.76,"Indonesia",.2478947,.5184252,1,954,"mda_infected",1
+"Wiria 2013","height (cm)",21,.76,"Indonesia",1.3483,.5347543,1,954,"mda",1
+"Wiria 2013","weight (kg)",21,.76,"Indonesia",.1884,.3940032,1,954,"mda",1
+"Wiria 2013","height (cm)",21,.76,"Indonesia",.2115697,.0839114,1,954,"mda_pw",1
+"Wiria 2013","weight (kg)",21,.76,"Indonesia",.029563,.0618253,1,954,"mda_pw",1
+"Yap 2014 (I)","height (cm)",,.93444169,"Myanmar, China",.0028012,.0017865,0,,"tt_pw",1
+"Yap 2014 (I)","Haemoglobin (g/dL)",,.93444169,"Myanmar, China",-.0056024,.0060741,0,,"tt_pw",1
+"Yap 2014 (I)","weight (kg)",,.93444169,"Myanmar, China",.0042018,.0025014,0,,"tt_pw",1
+"Yap 2014 (I)","height (cm)",,.93444169,"Myanmar, China",.2,.1275508,0,,"tt",1
+"Yap 2014 (I)","Haemoglobin (g/dL)",,.93444169,"Myanmar, China",-.4,.4336801,0,,"tt",1
+"Yap 2014 (I)","weight (kg)",,.93444169,"Myanmar, China",.3,.1785942,0,,"tt",1

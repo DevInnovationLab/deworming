@@ -1,0 +1,48 @@
+study_name_welch,unit,study_name,group_welch,mean_treat,sd_treat,n_treat,mean_control,sd_control,n_control,std_mean_diff,ci_lower,ci_upper,weight_kg,weight_waz
+Alderman 2006,cluster,Alderman 2006,Albendazole std vs placebo,2.413,7.42,14940,2.259,8.01,13055,0.02,0,0.04,1,0
+Awasthi 2000,,Awasthi 2000,Albendazole std vs placebo,0.99,0.62,576,0.95,0.85,387,0.06,-0.07,0.18,1,0
+Bhoite 2012,cluster adj,Bhoite 2012a,Albendazole std vs placebo,2.4,14.26,128,3.7,10.88,153,-0.1,-0.34,0.13,1,0
+Dossa DW vs placebo,,Dossa 2001a,Albendazole std vs placebo,1.2,1,37,1.2,1.1,28,0,-0.49,0.49,1,0
+Hadju 1997,,Hadju 1997a,Albendazole std vs placebo,0.01,0.7156,69,0.02,0.7411,74,-0.01,-0.34,0.31,1,0
+Hall 2006,cluster,Hall 2006,Albendazole std vs placebo,4.73,1.91,1341,4.73,1.95,1318,0,-0.08,0.08,1,0
+Koroma 1996,,Koroma 1996,Albendazole std vs placebo,1.03,0.568,139,-0.075,0.926,48,,,,0,0
+Nga 2009 and 2011,,Nga 2009a,Albendazole std vs placebo,0.1,0.324376,120,0.08,0.30919,122,0.06,-0.19,0.31,1,0
+Olds 1999 from Charlie King,,Olds 1999a,Albendazole std vs placebo,1.41,1.39,92,1.66,1.59,91,-0.17,-0.46,0.12,1,0
+Rozelle 2015,cluster,Liu 2015,Albendazole std vs placebo,3.95,3.65,1000,3.81,2.99,1028,0.04,-0.05,0.13,0,1
+Stephenson 1989,,Stephenson 1989,Albendazole std vs placebo,2.1,0.79,78,0.7,0.85,72,,,,0,0
+Stephenson 1993,,Stephenson 1993b,Albendazole std vs placebo,3.1,1.36,95,2.2,1.16,93,0.71,0.41,1,1,0
+Sur 2005,,Sur 2005,Albendazole std vs placebo,1.52,2.91,342,1.23,2.31,341,0.11,-0.04,0.26,1,0
+Kruger 1996,,Kruger 1996,Albendazole high frequency,1.17,0.55,87,1.14,0.69,91,0.05,-0.25,0.34,1,0
+Ndibazza 2012,,Ndibazza 2012,Albendazole high frequency,2.06,0.94,682,2.08,0.95,715,-0.02,-0.13,0.08,0,1
+Watkins 1996,,Watkins 1996,Albendazole high frequency,1.82,0.861,116,1.69,0.734,110,0.16,-0.1,0.42,1,0
+Wiria 2013,cluster,Wiria 2013,Albendazole high frequency,2.41,4.61,311,1.99,4.95,310,0.09,-0.07,0.25,0,1
+Hadju 1997,,Hadju 1997b,Albendazole low frequency,-0.1,0.6999,63,0.02,0.7411,74,-0.17,-0.5,0.17,1,0
+Stephenson 1993,,Stephenson 1993a,Albendazole low frequency,3.3,1.7636,96,2.2,1.157,93,0.73,0.44,1.03,1,0
+Awasthi 2001,cluster,Awasthi 2001,Alben std + vitamin A vs vitamin A,3.22,7.64,832,3.05,5.63,840,0.03,-0.07,0.12,1,0
+Awasthi 2008,cluster,Awasthi 1995,Alben std + vitamin A vs vitamin A,1.93,5.26,1860,1.57,3.96,1852,0.08,0.01,0.14,1,0
+Jinabhai 2001,,Jinabhai 2001,Albendazole std + praziquantel vs placebo,1.4,1.74,124,1.2,1.59,126,0.12,-0.13,0.37,1,0
+Olds 1999 from Charlie King,,Olds 1999b,Albendazole std + praziquantel vs placebo,1.77,1.62,97,1.66,1.59,91,0.07,-0.22,0.35,1,0
+Bhoite 2012,cluster adj,Bhoite 2012b ,Albendazole std + iron vs placebo,1.4,15.9,215,3.7,10.88,153,-0.16,-0.37,0.04,1,0
+Dossa 2001,,Dossa 2001b,Albendazole std + iron vs placebo,1.2,0.6,31,1.2,1.1,28,0,-0.51,0.51,1,0
+Nga 2009 and 2011,,Nga 2009b,Albendazole std + MMN vs placebo,0.11,0.324,122,0.08,0.309,122,0.09,-0.16,0.35,0,1
+Miguel 2004,cluster,Miguel 2004a,Alben std + hygiene education vs placebo,-1.25,0.791,2543,-1.28,0.846,3901,0.04,-0.01,0.09,0,1
+Miguel 2004,cluster,Miguel 2004b,Alben std + PZQ + hygiene vs control,-1.26,0.816,904,-1.23,0.864,3814,-0.04,-0.11,0.04,0,1
+Donnen 1998,,Donnen 1998,Mebendazole high frequency,1.715,1.36,123,2.266,1.34,117,-0.41,-0.66,-0.15,1,0
+Ostwald 1984,,Ostwald 1984,Mebendazole high frequency,2.8,2.4,42,2.1,1.7,45,0.34,-0.09,0.76,1,0
+Rousham 1994,cluster,Rousham 1994,Mebendazole high frequency,0.1,3,714,0.14,2.89,688,-0.01,-0.12,0.09,1,0
+Stoltzfus 1997,cluster,Stoltzfus 1997b,Mebendazole high frequency,2.7,2.38,1019,2.6,2.33,1054,0.04,-0.04,0.13,1,0
+Joseph 2015,,Joseph 2015a,Mebendazole standard vs placebo,2.04,0.7471,440,2,0.7471,440,0.05,-0.08,0.19,1,0
+Stoltzfus 1997,cluster,Stoltzfus 1997a,Mebendazole standard vs placebo,2.83,2.41,990,2.6,2.33,1054,0.1,0.01,0.18,1,0
+Garg 2002,,Garg 2002,Mebendazole low freq,1.21,0.77,166,1.19,0.67,181,0.03,-0.18,0.24,1,0
+Joseph 2015 pbo/meb,,Joseph 2015b,Mebendazole low freq,1.93,0.8538,440,2,0.7471,440,,,,0,0
+Joseph 2015,,Joseph 2015c,Mebendazole low freq,2.05,0.7471,440,2,0.7471,440,0.07,-0.07,0.2,1,0
+Willett 1979,,Willett 1979,Levarnisole high vs placebo,2.08,0.802,137,1.92,0.802,137,0.2,-0.04,0.44,1,0
+Goto 2009,,Goto 2009,Alben HD + secnidazole (antigiardial) vs placebo,1.43,0.537,63,1.47,0.4729,48,-0.08,-0.45,0.3,0,1
+Hadju 1997,,Hadju 1997c,pyrantel standard vs placebo,0.08,0.6728,61,0.02,0.7411,74,0.08,-0.26,0.42,1,0
+Hadju 1997,,Hadju 1997d,pyrantel low frequency vs placebo,0.03,0.6673,60,0.02,0.7411,74,0.01,-0.33,0.35,1,0
+Gateff 1972,,Gateff 1972,Thiabendazole std vs placebo,2.2153,1.61,140,1.868,1.61,140,0.22,-0.02,0.45,1,0
+Gupta 1977,,Gupta 1977,Tetramizole vs placebo,,,,,,,,,,0,0
+Gupta 1982,,Gupta 1982a,Piperazine high vs placebo,1.659,0.73,39,1.632,0.82,39,0.03,-0.41,0.48,1,0
+Greenberg 1981,,Greenberg 1981,Piperazine low vs placebo,-2.23,4.95,74,-1.69,5.16,78,-0.11,-0.42,0.21,1,0
+Olds 1999 from Charlie King,,Olds 1999c,Praziquantel vs placebo,1.88,1.78,91,1.66,1.59,91,0.13,-0.16,0.42,1,0
+Miguel 2004,cluster,Miguel 2004c,Albendazole + PZQ + hygiene,-1.25,2.33,855,-1.28,2.33,5540,0.01,-0.06,0.08,0,1

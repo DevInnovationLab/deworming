@@ -1,0 +1,315 @@
+* 00000006
+*! version 1.0.0
+* Do not erase or edit this file
+* It is used by Stata to track the ado and help
+* files you have installed.
+
+S http://fmwww.bc.edu/repec/bocode/m
+N metan.pkg
+D 17 Apr 2023
+U 1
+d 'METAN': module for fixed and random effects meta-analysis
+d 
+d  Meta-analysis is a statistical technique for combining results
+d from multiple independent studies, with the aim of estimating a
+d single overall effect.  The routines in this package provide
+d facilities to conduct meta-analyses of binary (event) or
+d continuous data from two groups, or intervention effect estimates
+d with corresponding standard errors or confidence intervals.  This
+d is an updated version of metan as published in Stata Journal
+d Issue 8, and prior to that in STB-44, authored by Michael J
+d Bradburn, Jonathan J Deeks and Douglas G Altman.  Updates include
+d a wide range of random-effects models; cumulative and influence
+d analysis; meta-analysis of proportions; and better handling of
+d heterogeneity, continuity correction and returned values. The
+d routine for constructing forest plots has been separated off
+d (‘forestplot’ command) and hugely extended; extremely
+d flexible and generalised forest plots may now be produced.  Also
+d included is an “immediate” command ‘metani’, which
+d accepts numlists or matrices as input rather than variables in
+d memory; the ‘metannt’ program for binary data, which displays
+d estimated intervention effects in terms of the absolute reduction
+d in risk and number needed to treat; and the ‘labbe’ program
+d which produces L'Abbe plots to examine whether the assumption of
+d a common odds ratio, risk ratio or risk difference is reasonable.
+d  Further information on this package, including validation
+d scripts, may be found at  https://github.com/UCL/metan; and a
+d description of available Stata meta-analysis commands may be
+d found at  http://www.stata.com/support/faqs/stat/meta.html.
+d 
+d KW: meta-analysis
+d KW: fixed effects
+d KW: random effects
+d KW: forest plot
+d KW: l'Abbe plot
+d KW: proportions
+d KW: cumulative
+d KW: influence
+d KW: nnt
+d 
+d Requires: Stata version 9 (version 9 for metan9, or version 7 for metan7)
+d 
+d Distribution-Date: 20221012
+d 
+d Author: David Fisher, MRC Clinical Trials Unit at UCL
+d Support: email d.fisher@@ucl.ac.uk
+d 
+d Author: Ross Harris, Department of Social Medicine, University of Bristol
+d Support: email
+d 
+d Author: Mike Bradburn, Centre for Statistics in Medicine, University of Oxford
+d Support: email
+d 
+d Author: Jon Deeks, Centre for Statistics in Medicine, University of Oxford
+d Support: email
+d 
+d Author: Roger Harbord, Department of Social Medicine, University of Bristol
+d Support: email
+d 
+d Author: Doug Altman, Centre for Statistics in Medicine, University of Oxford
+d Support: email
+d 
+d Author: Thomas Steichen, Department of Social Medicine, University of Bristol
+d Support: email
+d 
+d Author: Jonathan Sterne, Department of Social Medicine, University of Bristol
+d Support: email
+d 
+d Author: Julian Higgins, Department of Social Medicine, University of Bristol
+d Support: email
+d 
+d SJ: sbe24
+d 
+f m\metan.ado
+f m\metan.mata
+f m\metan.sthlp
+f m\metan_analysis.ado
+f m\metan_output.ado
+f m\metan_binary.sthlp
+f m\metan_continuous.sthlp
+f m\metan_model.sthlp
+f m\metan_pooling.ado
+f m\metan_proportion.sthlp
+f m\metan_hlp_run.ado
+f f\forestplot.ado
+f f\forestplot.sthlp
+f l\labbe.ado
+f l\labbe.sthlp
+f m\metan7.ado
+f m\metan7.sthlp
+f m\metan9.ado
+f m\metan9.sthlp
+f m\metani.ado
+f m\metani.sthlp
+f m\metannt.ado
+f m\metannt.sthlp
+f m\metan_examples.ado
+f l\lmetan.mlib
+e
+S http://fmwww.bc.edu/repec/bocode/m
+N metareg.pkg
+D 17 Apr 2023
+U 2
+d 'METAREG': module to perform meta-analysis regression
+d 
+d metareg performs random-effects meta-regression on study-level
+d summary  data. This is a revised version of the program
+d originally written by Stephen  Sharp (STB-42, sbe23). �The major
+d revisions involve improvements to the  estimation methods and the
+d addition of an option to use a permutation test to  estimate
+d p-values, including an adjustment for multiple testing. We have
+d also made additions to the output, added an option to produce a
+d graph, and included  support for the predict command.
+d 
+d KW: meta-analysis
+d KW: regression
+d KW: permutation test
+d KW: multiple testing
+d 
+d Requires: Stata version 8.2
+d 
+d Distribution-Date: 20090105
+d 
+d Author: Roger Harbord, University of Bristol
+d Support: email roger.harbord@@bristol.ac.uk
+d 
+d Author: Julian Higgins, MRC Biostatistics Unit
+d Support: email
+d 
+f m\metareg.ado
+f m\metareg.dlg
+f m\metareg.hlp
+f m\metareg_ll.ado
+f m\metareg_p.ado
+f m\metareg_pm.ado
+e
+S http://fmwww.bc.edu/repec/bocode/r
+N rsource.pkg
+D 17 Apr 2023
+U 3
+d 'RSOURCE': module to run R from inside Stata using an R source file
+d 
+d  The program rsource runs the Rterm command of R from inside
+d Stata,      using an R source file, if R is installed on the
+d user's system.      The output and/or the source file can be
+d listed to the Stata log file     and/or to the Stata Results
+d window in an interactive Stata session.      If the R directory
+d on the user's system is not on the user's default  path, then
+d the user must set the global macro Rterm_path to contain the
+d path for the Rterm command, possibly in the profile.do file
+d (see on-line help for details).
+d 
+d KW: R
+d KW: language
+d KW: interface
+d 
+d Requires: Stata version 10.0
+d 
+d Distribution-Date: 20160509
+d 
+d Author: Roger Newson,  King's College London
+d Support: email roger.newson@@kcl.ac.uk
+d 
+f r\rsource.ado
+f r\rsource.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/m
+N mat2txt.pkg
+D 25 May 2023
+U 4
+d 'MAT2TXT': module to write matrix to ASCII file
+d 
+d mat2txt outputs a Stata matrix to a text file for use in other
+d programs such as word processors or spreadsheets.  The matrix row
+d and column names as well as the matrix data values are exported
+d to a tab delimited ASCII file. The user may optionally specify a
+d title and/or a note to add text to the file before and/or after
+d the matrix.  Display formats may be specified.  The data may be
+d appended to an existing file or replace an existing file. The
+d routine now handles matrix labels with spaces and long filenames. d
+d KW: matrix
+d KW: export
+d KW: output
+d KW: text
+d 
+d Requires: Stata version 8.0
+d 
+d 
+d Author: Michael Blasnik, M. Blasnik and Associates
+d Support: email  mblasnik@@verizon.net
+d 
+d Author: Ben Jann, ETH Zurich
+d Support: email  ben.jann@@soz.gess.ethz.ch
+d 
+d Distribution-Date: 20041128
+f m\mat2txt.ado
+f m\mat2txt.hlp
+e
+S http://fmwww.bc.edu/repec/bocode/e
+N estout.pkg
+D 25 May 2023
+U 5
+d 'ESTOUT': module to make regression tables
+d 
+d  estout produces a table of regression results from one or
+d several models for use with spreadsheets, LaTeX, HTML, or a
+d word-processor table. eststo stores a quick copy of the active
+d estimation results for later tabulation. esttab is a wrapper for
+d estout. It displays a pretty looking publication-style regression
+d table without much typing. estadd adds additional results to the
+d e()-returns for one or several models previously fitted and
+d stored. This package subsumes the previously circulated esto,
+d esta, estadd,  and estadd_plus. An earlier version of estout is
+d available  as estout1.
+d 
+d KW: estimates
+d KW: LaTeX
+d KW: HTML
+d KW: word processor
+d KW: output
+d 
+d Requires: Stata version 8.2
+d 
+d Distribution-Date: 20230212
+d 
+d Author: Ben Jann, University of Bern
+d Support: email jann@@soz.unibe.ch
+d 
+f _\_eststo.ado
+f _\_eststo.hlp
+f e\estadd.ado
+f e\estadd.hlp
+f e\estout.ado
+f e\estout.hlp
+f e\eststo.ado
+f e\eststo.hlp
+f e\estpost.ado
+f e\estpost.hlp
+f e\esttab.ado
+f e\esttab.hlp
+e
+S http://fmwww.bc.edu/repec/bocode/i
+N ietoolkit.pkg
+D 25 May 2023
+U 6
+d 'IETOOLKIT': module providing commands specially developed for Impact Evaluations
+d 
+d  ietookit provides a set of commands that address different
+d aspects of data management and data analysis in relation to
+d Impact Evaluations. The list of commands will be extended
+d continuously, and suggestions on new commands are highly
+d appreciated. Some of the commands are related to standardized
+d practices developed at the World Bank’s unit for Impact
+d Evaluations (DIME) and might not apply to practices adopted at
+d other institutions. For these commands, the corresponding help
+d files provide justifications for the standardized practices
+d applied. ieduplicates and iecompdup are useful tools to identify
+d and correct for duplicates. iebaltab is a tool for multiple
+d treatment arm balance tables. ieboilstart standardizes the
+d boilerplate code at the top of all do-files. iegraph produces
+d graphs based on common impact evaluation regression models. See
+d https://github.com/worldbank/ietoolkit for more details.
+d 
+d KW: reproducible research
+d KW: impact evaluations
+d KW: data management
+d KW: survey data
+d KW: data analysis
+d KW: balance tables
+d KW: difference-in-differences
+d KW: matching
+d 
+d Requires: Stata version 12
+d 
+d Distribution-Date: 20230408
+d 
+d Author: DIME Analytics, The World Bank, DECIE
+d Support: email  lcardosodeandrad@@worldbank.org
+d 
+f i\ietoolkit.ado
+f i\ietoolkit.sthlp
+f i\iebaltab.ado
+f i\iebaltab.sthlp
+f i\ieboilsave.ado
+f i\ieboilsave.sthlp
+f i\ieboilstart.ado
+f i\ieboilstart.sthlp
+f i\ieddtab.ado
+f i\ieddtab.sthlp
+f i\iedorep.ado
+f i\iedorep.sthlp
+f i\iedropone.ado
+f i\iedropone.sthlp
+f i\iefolder.ado
+f i\iefolder.sthlp
+f i\iegitaddmd.ado
+f i\iegitaddmd.sthlp
+f i\iegraph.ado
+f i\iegraph.sthlp
+f i\iekdensity.ado
+f i\iekdensity.sthlp
+f i\iematch.ado
+f i\iematch.sthlp
+f i\iesave.ado
+f i\iesave.sthlp
+e
