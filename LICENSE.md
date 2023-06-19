@@ -1,13 +1,17 @@
 
-[Unlicense](http://unlicense.org/) applies to all files in the `code`, `output`, and `documentation` folder
-[Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/) applies to all files in the `data` folder
-
+# Summary
 
 COPYRIGHT 2023 Development Innovation Lab
 
-=================================================================
-Unlicense
-=================================================================
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+applies to all files in the `code`, `output`, and `documentation` folder
+
+[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](http://unlicense.org/) 
+
+applies to all files in the `data` folder
+
+# Unlicense
 
 This is free and unencumbered software released into the public domain.
 
@@ -34,9 +38,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 
-=================================================================
-Creative Commons Attribution 4.0 International Public License
-=================================================================
+# Creative Commons Attribution 4.0 International Public License
 
 By exercising the Licensed Rights (defined below), You accept and agree
 to be bound by the terms and conditions of this Creative Commons
@@ -116,10 +118,10 @@ Section 2 – Scope.
   non-sublicensable, non-exclusive, irrevocable license to exercise the
   Licensed Rights in the Licensed Material to:
 
-    A. reproduce and Share the Licensed Material, in whole or in part;
+   A. reproduce and Share the Licensed Material, in whole or in part;
     and
 
-    B. produce, reproduce, and Share Adapted Material.
+   B. produce, reproduce, and Share Adapted Material.
 
   2. Exceptions and Limitations. For the avoidance of doubt, where
   Exceptions and Limitations apply to Your use, this Public License does
@@ -141,16 +143,16 @@ Section 2 – Scope.
   
   5. Downstream recipients.
       
-      A. Offer from the Licensor – Licensed Material. Every recipient of
-      the Licensed Material automatically receives an offer from the
-      Licensor to exercise the Licensed Rights under the terms and
-      conditions of this Public License.
+     A. Offer from the Licensor – Licensed Material. Every recipient of
+     the Licensed Material automatically receives an offer from the
+     Licensor to exercise the Licensed Rights under the terms and
+     conditions of this Public License.
       
-      B. No downstream restrictions. You may not offer or impose any
-      additional or different terms or conditions on, or apply any
-      Effective Technological Measures to, the Licensed Material if
-      doing so restricts exercise of the Licensed Rights by any
-      recipient of the Licensed Material.
+     B. No downstream restrictions. You may not offer or impose any
+     additional or different terms or conditions on, or apply any
+     Effective Technological Measures to, the Licensed Material if
+     doing so restricts exercise of the Licensed Rights by any
+     recipient of the Licensed Material.
         
   6. No endorsement. Nothing in this Public License constitutes or may
   be construed as permission to assert or imply that You are, or that
@@ -187,29 +189,29 @@ following conditions.
   1. If You Share the Licensed Material (including in modified form),
   You must:
       
-    A. retain the following if it is supplied by the Licensor with the
-    Licensed Material:
+   A. retain the following if it is supplied by the Licensor with the
+   Licensed Material:
       
-      i.   identification of the creator(s) of the Licensed Material and
-      any others designated to receive attribution, in any reasonable
-      manner requested by the Licensor (including by pseudonym if
-      designated);
-      
-      ii.  a copyright notice;
-      
-      iii. a notice that refers to this Public License;
-      
-      iv.  a notice that refers to the disclaimer of warranties;
-      
-      v.   a URI or hyperlink to the Licensed Material to the extent
-      reasonably practicable;
-    
-    B. indicate if You modified the Licensed Material and retain an
-    indication of any previous modifications; and
-    
-    C. indicate the Licensed Material is licensed under this Public
-    License, and include the text of, or the URI or hyperlink to, this
-    Public License.
+   i.   identification of the creator(s) of the Licensed Material and
+   any others designated to receive attribution, in any reasonable
+   manner requested by the Licensor (including by pseudonym if
+   designated);
+
+   ii.  a copyright notice;
+
+   iii. a notice that refers to this Public License;
+
+   iv.  a notice that refers to the disclaimer of warranties;
+
+   v.   a URI or hyperlink to the Licensed Material to the extent
+   reasonably practicable;
+
+B. indicate if You modified the Licensed Material and retain an
+indication of any previous modifications; and
+
+C. indicate the Licensed Material is licensed under this Public
+License, and include the text of, or the URI or hyperlink to, this
+Public License.
   
   2. You may satisfy the conditions in Section 3(a)(1) in any reasonable
   manner based on the medium, means, and context in which You Share the
