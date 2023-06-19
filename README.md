@@ -2,6 +2,8 @@
 
 The code in this replication package recreates the main data set and results in the paper using R and Stata. To replicate outputs, run `main.do`. The replicator should expect the code to run in less than 20 minutes.
 
+[![DOI](https://zenodo.org/badge/654572184.svg)](https://zenodo.org/badge/latestdoi/654572184)
+
 ## Data Availability and Provenance Statements
 
 The raw data used in the paper can be found in `data/raw`. The two main raw datasets are `mda.dta`, containing data from MDA trials and created by script 01, and `tt.dta`, contaning data from test-and-treat trials and created by script 02. The data from the Campbell Systematic Reviews was provided by the authors of that study. 
