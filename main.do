@@ -18,12 +18,21 @@
 	global output_tables      "${github}/output/tables"
 	global output_stan        "${github}/output/stan"
    
-    * Find user-written commands in GitHub
-	* ------------------------------------
+    * Find community-contributed commands in GitHub
+	* ----------------------------------------------
+	* These commands will only be downloaded to the root folder of the repository
+	* and will only be available in Stata if the sysdir and adopath lines below
+	* are run
 	sysdir set  PLUS "${code}/ado"
 
-	adopath ++  PLUS
-	adopath ++  BASE
+		adopath ++  PLUS
+		adopath ++  BASE
+	cap adopath - OLDPLACE
+	
+	foreach package in estout ietoolkit metan rsource metareg {
+		cap which `package'
+		if _rc ssc install `package'
+	}
    
 	* rsource settings
 	* ---------------------

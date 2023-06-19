@@ -6,7 +6,7 @@ The code in this replication package recreates the main data set and results in 
 
 The raw data used in the paper can be found in `data/raw`. The two main raw datasets are `mda.dta`, containing data from MDA trials and created by script 01, and `tt.dta`, contaning data from test-and-treat trials and created by script 02. The data from the Campbell Systematic Reviews was provided by the authors of that study. 
 
-**The code is licensed under a xxx license. See [LICENSE.txt](LICENSE.txt) for details.**
+**The data is licensed under a CC BY 4.0 license. See [LICENSE.txt](LICENSE.txt) for details.**
 
 ## Computational requirements
 
@@ -14,7 +14,12 @@ The code was last run on a **10-core Intel-based laptop with Windows 10 and 16GB
 
 ### Software Requirements
 
-- **Stata** code was last run with version 17. The exact versions of all community-contributed packages last used are included in `code/ado`.
+- **Stata** code was last run with version 17. The following community-contributed packages are installed in lines (21-35 of `main.do`):
+  - `estout` (version 3.31  26apr2022)
+  - `ietoolkit` (version 7.2 04APR2023)
+  - `metan` (version 4.06  12oct2022)
+  - `metareg` (v2.6.1 4Nov2008)
+  - `rsource` (Date: 27 February 2014)
 - **R** code was last run with version 4.2.3. The exact versions of all packages last used are listed in `renv.lock`. To install these versions, launch the R project `deworming.RProj` and run `renv::restore()`.
 
 ### Controlled Randomness
@@ -25,7 +30,7 @@ Script `07_bayesian hierarchical models.R` runs simulations and a random seed is
 
 All scripts used for data creation and analysis are included in `code`. Scripts 01-03 create or import the raw data in `data/raw`. Scripts 04 and 05 reformat the raw data for use with different functions. Scripts 06-11 analyze the data. See `main.do` for a detailed description of inputs and outputs of each script.
 
-**The code is licensed under a MIT/BSD/GPL [choose one!] license. See [LICENSE.txt](LICENSE.txt) for details.**
+**The code is licensed under an Unlicense license. See [LICENSE.txt](LICENSE.txt) for details.**
 
 ## Instructions to Replicators
 
@@ -36,11 +41,7 @@ All scripts used for data creation and analysis are included in `code`. Scripts 
 
 ## List of tables and programs
 
-**The provided code reproduces:**
-
-- [ ] All numbers provided in text in the paper
-- [ ] All tables and figures in the paper
-- [ ] Selected tables and figures in the paper, as explained and justified below.
+The provided code reproduces all tables and figures in the paper, except for the items marked under "Note" below.
 
 | Figure/Table #    | Program                        | Line Number | Output file                      | Note                            |
 |-------------------|--------------------------------|-------------|----------------------------------|---------------------------------|
