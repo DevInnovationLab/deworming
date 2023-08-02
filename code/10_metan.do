@@ -30,6 +30,7 @@
 	drop mda order stat
 
 	export delimited using "${output_tables}/table1.csv", replace
+	export excel 	 using "${output_tables}/table1.xls", replace
 }
 ********************************************************************************
 **# Table 2: Random-effects and fixed-effect estimates
@@ -72,6 +73,7 @@
 	}
 
 	estout matrix(R) using "${output_tables}/table2.csv", replace delimiter(",")
+	estout matrix(R) using "${output_tables}/table2.xls", replace
 }
 
 * Data for figure 5
@@ -148,6 +150,10 @@
 		estout matrix(R) using "${output_tables}/table3.csv", delimiter(",") `save'
 		local save append
 	}
+	
+	import delimited 	"${output_tables}/table3.csv", clear
+	export excel using 	"${output_tables}/table3.xls", replace
+
 }
 ********************************************************************************
 **# Table S2: Statistical power to detect effects that render deworming MDA cost-effective relative to alternative policies
@@ -274,8 +280,9 @@
 		local ++i
 	}
 		
-	estout matrix(A) using "${output_tables}/tableS2.csv", replace delimiter(",")
-	estout matrix(B) using "${output_tables}/tableS2.csv", append  delimiter(",")
+	mat full = A \ B
+	estout matrix(full) using "${output_tables}/tableS2.csv", replace delimiter(",")
+	estout matrix(full) using "${output_tables}/tableS2.xls", replace
 		
 	* For Campbell power calculations, refer to code under Table S3.
 }
@@ -309,6 +316,7 @@
 	}
 
 	estout matrix(R) using "${output_tables}/tableS3.csv", replace delimiter(",")
+	estout matrix(R) using "${output_tables}/tableS3.xls", replace
 
 }
 ********************************************************************************
@@ -354,6 +362,7 @@
 	}
 
 	estout matrix(R) using "${output_tables}/tableS4.csv", replace delimiter(",")
+	estout matrix(R) using "${output_tables}/tableS4.xls", replace
 }
 
 ********************************************************************************
@@ -388,7 +397,9 @@
 		local col = `col'+1
 	}	
 
+	matrix R = R'
 	estout matrix(R) using "${output_tables}/tableS5.csv", replace delimiter(",")
+	estout matrix(R) using "${output_tables}/tableS5.xls", replace
 
 }
 ********************************************************************************
@@ -425,7 +436,9 @@
 		local ++j
 		local ++j
 	}	
+	
 	estout matrix(R) using "${output_tables}/tableS6.csv", replace delimiter(",")
+	estout matrix(R) using "${output_tables}/tableS6.xls", replace
 
 }
 ********************************************************************************
