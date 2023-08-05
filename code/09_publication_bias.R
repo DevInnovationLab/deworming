@@ -1,7 +1,7 @@
 library(tidyverse)
 library(metafor)
 library(meta)
-library(xlsx)
+library(openxlsx)
 
 # Inputs =======================================================================
 
@@ -135,8 +135,8 @@ source("code/functions/metastudiesfunctions.R")
 
 total <-
   metastudies_estimation(
-    data$mean_diff, 
-    data$se_mean_diff, 
+    df_mda$mean_diff, 
+    df_mda$se_mean_diff, 
     cutoffs = 1.96, 
     symmetric = TRUE, 
     model = "normal"
@@ -144,7 +144,7 @@ total <-
   bind_cols() %>%
   t()
 
-df_weight <- data %>% filter(outcome == "weight (kg)")
+df_weight <- df_mda %>% filter(outcome == "weight (kg)")
 weight <-
   metastudies_estimation(
     df_weight$mean_diff, 
@@ -156,7 +156,7 @@ weight <-
   bind_cols() %>%
   t()
 
-df_height <- data %>% filter(outcome == "height (cm)")
+df_height <- df_mda %>% filter(outcome == "height (cm)")
 height <-
   metastudies_estimation(
     df_height$mean_diff, 
@@ -168,7 +168,7 @@ height <-
   bind_cols() %>%
   t()
 
-df_hemo <- data %>% filter(outcome == "Haemoglobin")
+df_hemo <- df_mda %>% filter(outcome == "Haemoglobin")
 hemo <-
   metastudies_estimation(
     df_hemo$mean_diff, 
@@ -180,7 +180,7 @@ hemo <-
   bind_cols() %>%
   t()
 
-df_arm <- data %>% filter(outcome == "mid-upper arm circumference (cm)")
+df_arm <- df_mda %>% filter(outcome == "mid-upper arm circumference (cm)")
 arm <-
   metastudies_estimation(
     df_arm$mean_diff, 
@@ -222,4 +222,6 @@ table %>%
   write.csv("output/tables/andrews-kasy-bias.csv")
 
 table %>%
-  write.xlsx("output/Formatted tables.xlsx", sheetName = "t9_raw", append=TRUE)
+  openxlsx::write.xlsx("output/Formatted tables.xlsx", 
+                       sheetName = "t9_raw",
+                       overwrite=TRUE)
