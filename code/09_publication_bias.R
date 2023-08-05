@@ -1,6 +1,7 @@
 library(tidyverse)
 library(metafor)
 library(meta)
+library(xlsx)
 
 # Inputs =======================================================================
 
@@ -127,97 +128,98 @@ pub_bias_table_tt %>%
 # Andrews and Kasy's publication bias test =====================================
 # Preparing data to upload it to the web app for A&K test
 
-for(out in outcomes) {
-  for(i in 1:2) {
+source("code/functions/metastudiesfunctions.R")
 
-    trial <- trial_type[i]
 
-    df_list[[i]] %>%
-      filter(outcome == out) %>%
-      select(mean_diff, se_mean_diff) %>%
-      write_csv(
-        paste0("data/pub_bias/data_ak_", out, trial, ".csv"),
-        col_names = F
-      )
-  }
-}
+# Estimates ----------------------------
 
-# Tables for AK test
+total <-
+  metastudies_estimation(
+    data$mean_diff, 
+    data$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
 
-# (1) Weight
-# MDA
-weight_mda <- c(0.184,0.284,1.962)
-weight_mda_sd <- c(0.108,0.120,1.587)
+df_weight <- data %>% filter(outcome == "weight (kg)")
+weight <-
+  metastudies_estimation(
+    df_weight$mean_diff, 
+    df_weight$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
 
-# MDA + tt
-weight_mdatt <- c(0.322,0.348,0.961)
-weight_mdatt_sd <- c(0.138,0.145,0.785)
+df_height <- data %>% filter(outcome == "height (cm)")
+height <-
+  metastudies_estimation(
+    df_height$mean_diff, 
+    df_height$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
 
-# (2) Height
-# MDA
-height_mda <- c(0.055,0,0.419)
-height_mda_sd <- c(0.027, 0, 0.281)
+df_hemo <- data %>% filter(outcome == "Haemoglobin")
+hemo <-
+  metastudies_estimation(
+    df_hemo$mean_diff, 
+    df_hemo$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
 
-# MDA + tt
-height_mdatt <- c(0.151,0.118,0.854)
-height_mdatt_sd <- c(0.08,0.097,0.766)
+df_arm <- data %>% filter(outcome == "mid-upper arm circumference (cm)")
+arm <-
+  metastudies_estimation(
+    df_arm$mean_diff, 
+    df_arm$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
 
-# (3) MUAC
-
-# MDA
-muac_mda <- c(0.112,0.191,0.706)
-muac_mda_sd <- c(0.116,0.048,0.943)
-
-# MDA + tt
-muac_mdatt <- c(0.112,0.191,0.706)
-muac_mdatt_sd <- c(0.116,0.048,0.943)
-
-# (4) Haemoglobin
-
-# MDA
-hem_mda <- c(0.017,0,0.685)
-hem_mda_sd <- c(0.021,0,0.726)
-
-# MDA + tt
-hem_mdatt <- c(0.106,0,0.937)
-hem_mdatt_sd <- c(0.065,0,1.056)
-
-# Final AK df
-
-# Only MDA
-df_ak_mda <-  rbind(
-  weight_mda, weight_mda_sd,
-  height_mda, height_mda_sd,
-  muac_mda, muac_mda_sd,
-  hem_mda, hem_mda_sd
-) %>%
+# Prepare table ------------------------------
+table <-
+  rbind(
+    total,
+    weight,
+    height,
+    hemo,
+    arm
+  ) %>%
   as.data.frame() %>%
-  mutate(
-    variable=c("Weight","", "Height","",
-               "MUAC","", "Haemoglobin", "")
+  setNames(c("mean_diff", "se_mean_diff", "beta_p"))
+
+rownames(table) <-
+  paste(
+    map(
+      c(c("mortality"), outcomes), 
+      ~ rep(., 2)
+    ) %>% unlist,
+    rep(
+      c("pe", "se"),
+      3
+    ),
+    sep = "_"
   )
 
-colnames(df_ak_mda) <- c("theta", "hypersd", "betap")
+# Export table -----------------------------
+table %>%
+  write.csv("output/tables/andrews-kasy-bias.csv")
 
-# MDA +tt
-
-df_ak_mda_tt <-  rbind(
-  weight_mdatt, weight_mdatt_sd,
-  height_mdatt, height_mdatt_sd,
-  muac_mdatt, muac_mdatt_sd,
-  hem_mdatt, hem_mdatt_sd
-) %>%
-  as.data.frame() %>%
-  mutate(
-    variable=c("Weight","", "Height","",
-               "MUAC","", "Haemoglobin", "")
-  )
-
-colnames(df_ak_mda_tt) <- c("theta", "hypersd", "betap")
-
-# Saving datasets
-df_ak_mda %>%
-  write_csv("output/tables/pub-bias-AK_mda.csv")
-
-df_ak_mda_tt %>%
-  write_csv("output/tables/pub-bias-AK_mda_tt.csv")
+table %>%
+  write.xlsx("output/Formatted tables.xlsx", sheetName = "t9_raw", append=TRUE)
