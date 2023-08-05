@@ -221,7 +221,8 @@ rownames(table) <-
 table %>%
   write.csv("output/tables/andrews-kasy-bias.csv")
 
-table %>%
-  openxlsx::write.xlsx("output/Formatted tables.xlsx", 
-                       sheetName = "t9_raw",
-                       overwrite=TRUE)
+wb <- loadWorkbook("output/Formatted tables.xlsx")
+removeWorksheet(wb, "t9_raw")
+addWorksheet(wb, "t9_raw")
+writeData(wb,"t9_raw", table)
+saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
