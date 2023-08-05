@@ -222,7 +222,13 @@ table %>%
   write.csv("output/tables/andrews-kasy-bias.csv")
 
 wb <- loadWorkbook("output/Formatted tables.xlsx")
-removeWorksheet(wb, "t9_raw")
-addWorksheet(wb, "t9_raw")
+tryCatch(
+  {
+    removeWorksheet(wb, "tF3_raw")
+  }, error = function(cond) {
+    
+  }
+)
+addWorksheet(wb, "tF3_raw")
 writeData(wb,"t9_raw", table)
 saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
