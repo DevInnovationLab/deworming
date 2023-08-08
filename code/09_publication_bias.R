@@ -247,26 +247,28 @@ rownames(table) <-
 
 # Export table -----------------------------
 table %>%
-  write.csv("output/tables/andrews-kasy-bias.csv")
+  write.csv("output/tables/andrews-kasy-bias-1.csv")
 
 wb <- loadWorkbook("output/Formatted tables.xlsx")
 tryCatch(
   {
-    removeWorksheet(wb, "tF2_2_raw")
+    removeWorksheet(wb, "tF1_2_raw")
   }, error = function(cond) {
     
   }
 )
-addWorksheet(wb, "tF2_2_raw")
-writeData(wb,"tF2_2_raw", table, rowNames=TRUE)
+addWorksheet(wb, "tF1_2_raw")
+writeData(wb,"tF1_2_raw", table, rowNames=TRUE)
 saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
 
 # Estimates ----------------------------
 
+df_mda_tt <- data %>% filter(group == "mda" | group == "tt")
+
 total <-
   metastudies_estimation(
-    data$mean_diff, 
-    data$se_mean_diff, 
+    df_mda_tt$mean_diff, 
+    df_mda_tt$se_mean_diff, 
     cutoffs = 1.96, 
     symmetric = TRUE, 
     model = "normal"
@@ -274,7 +276,7 @@ total <-
   bind_cols() %>%
   t()
 
-df_weight <- data %>% filter(outcome == "weight (kg)")
+df_weight <- df_mda_tt %>% filter(outcome == "weight (kg)")
 weight <-
   metastudies_estimation(
     df_weight$mean_diff, 
@@ -286,7 +288,7 @@ weight <-
   bind_cols() %>%
   t()
 
-df_height <- data %>% filter(outcome == "height (cm)")
+df_height <- df_mda_tt %>% filter(outcome == "height (cm)")
 height <-
   metastudies_estimation(
     df_height$mean_diff, 
@@ -298,7 +300,7 @@ height <-
   bind_cols() %>%
   t()
 
-df_hemo <- data %>% filter(outcome == "Haemoglobin")
+df_hemo <- df_mda_tt %>% filter(outcome == "Haemoglobin")
 hemo <-
   metastudies_estimation(
     df_hemo$mean_diff, 
@@ -310,7 +312,7 @@ hemo <-
   bind_cols() %>%
   t()
 
-df_arm <- data %>% filter(outcome == "mid-upper arm circumference (cm)")
+df_arm <- df_mda_tt %>% filter(outcome == "mid-upper arm circumference (cm)")
 arm <-
   metastudies_estimation(
     df_arm$mean_diff, 
@@ -349,17 +351,17 @@ rownames(table) <-
 
 # Export table -----------------------------
 table %>%
-  write.csv("output/tables/andrews-kasy-bias.csv")
+  write.csv("output/tables/andrews-kasy-bias-2.csv")
 
 wb <- loadWorkbook("output/Formatted tables.xlsx")
 tryCatch(
   {
-    removeWorksheet(wb, "tF1_2_raw")
+    removeWorksheet(wb, "tF2_2_raw")
   }, error = function(cond) {
     
   }
 )
-addWorksheet(wb, "tF1_2_raw")
-writeData(wb,"tF1_2_raw", table, rowNames=TRUE)
+addWorksheet(wb, "tF2_2_raw")
+writeData(wb,"tF2_2_raw", table, rowNames=TRUE)
 saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
 
