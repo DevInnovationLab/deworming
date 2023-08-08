@@ -106,7 +106,7 @@ for(i in 1:2){
     begg <- ranktest(res_re)
 
     if(i == 1){
-      pub_bias_table[out, 1] <- round(egger$pva, 2)
+      pub_bias_table[out, 1] <- round(egger$pval, 2)
       pub_bias_table[out, 2] <- round(begg$pval, 2)
     } else {
       pub_bias_table_tt[out, 1] <- round(egger$pval, 2)
@@ -121,9 +121,37 @@ pub_bias_table %>%
   setNames(c("Egger", "Beggs")) %>%
   write.csv("output/tables/tableF1-A.csv")
 
+
+wb <- loadWorkbook("output/Formatted tables.xlsx")
+tryCatch(
+  {
+    removeWorksheet(wb, "tF1_raw")
+  }, error = function(cond) {
+    
+  }
+)
+addWorksheet(wb, "tF1_raw")
+writeData(wb,"tF1_raw", pub_bias_table, rowNames=TRUE)
+saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
+
+
 pub_bias_table_tt %>%
   setNames(c("Egger", "Beggs")) %>%
   write.csv("output/tables/tableF2-A.csv")
+
+wb <- loadWorkbook("output/Formatted tables.xlsx")
+tryCatch(
+  {
+    removeWorksheet(wb, "tF2_raw")
+  }, error = function(cond) {
+    
+  }
+)
+addWorksheet(wb, "tF2_raw")
+writeData(wb,"tF2_raw", pub_bias_table_tt, rowNames=TRUE)
+saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
+
+
 
 # Andrews and Kasy's publication bias test =====================================
 # Preparing data to upload it to the web app for A&K test
@@ -224,11 +252,114 @@ table %>%
 wb <- loadWorkbook("output/Formatted tables.xlsx")
 tryCatch(
   {
-    removeWorksheet(wb, "tF3_raw")
+    removeWorksheet(wb, "tF2_2_raw")
   }, error = function(cond) {
     
   }
 )
-addWorksheet(wb, "tF3_raw")
-writeData(wb,"t9_raw", table)
+addWorksheet(wb, "tF2_2_raw")
+writeData(wb,"tF2_2_raw", table, rowNames=TRUE)
 saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
+
+# Estimates ----------------------------
+
+total <-
+  metastudies_estimation(
+    data$mean_diff, 
+    data$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
+
+df_weight <- data %>% filter(outcome == "weight (kg)")
+weight <-
+  metastudies_estimation(
+    df_weight$mean_diff, 
+    df_weight$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
+
+df_height <- data %>% filter(outcome == "height (cm)")
+height <-
+  metastudies_estimation(
+    df_height$mean_diff, 
+    df_height$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
+
+df_hemo <- data %>% filter(outcome == "Haemoglobin")
+hemo <-
+  metastudies_estimation(
+    df_hemo$mean_diff, 
+    df_hemo$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
+
+df_arm <- data %>% filter(outcome == "mid-upper arm circumference (cm)")
+arm <-
+  metastudies_estimation(
+    df_arm$mean_diff, 
+    df_arm$se_mean_diff, 
+    cutoffs = 1.96, 
+    symmetric = TRUE, 
+    model = "normal"
+  ) %>%
+  bind_cols() %>%
+  t()
+
+# Prepare table ------------------------------
+table <-
+  rbind(
+    total,
+    weight,
+    height,
+    hemo,
+    arm
+  ) %>%
+  as.data.frame() %>%
+  setNames(c("mean_diff", "se_mean_diff", "beta_p"))
+
+rownames(table) <-
+  paste(
+    map(
+      c(c("mortality"), outcomes), 
+      ~ rep(., 2)
+    ) %>% unlist,
+    rep(
+      c("pe", "se"),
+      3
+    ),
+    sep = "_"
+  )
+
+# Export table -----------------------------
+table %>%
+  write.csv("output/tables/andrews-kasy-bias.csv")
+
+wb <- loadWorkbook("output/Formatted tables.xlsx")
+tryCatch(
+  {
+    removeWorksheet(wb, "tF1_2_raw")
+  }, error = function(cond) {
+    
+  }
+)
+addWorksheet(wb, "tF1_2_raw")
+writeData(wb,"tF1_2_raw", table, rowNames=TRUE)
+saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
+
