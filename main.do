@@ -14,9 +14,10 @@
 	* ---------------------
 	global code               "${github}/code"
 	global data               "${github}/data"
-	global output_figures     "${github}/output/figures"
-	global output_tables      "${github}/output/tables"
-	global output_stan        "${github}/output/stan"
+	global output			  "${github}/output"
+	global output_figures     "${output}/figures"
+	global output_tables      "${output}/tables"
+	global output_stan        "${output}/stan"
    
     * Find community-contributed commands in GitHub
 	* ----------------------------------------------
@@ -28,15 +29,10 @@
 		adopath ++  PLUS
 		adopath ++  BASE
 	cap adopath - OLDPLACE
-	
-	foreach package in estout ietoolkit metan rsource metareg {
-		cap which `package'
-		if _rc ssc install `package'
-	}
    
 	* rsource settings
 	* ---------------------
-	cd "${github}"
+	cd "${github}" // this is necessary for rsource
    
 	global Rterm_options `"--vanilla"'
 	global Rterm_path `"C:\Program Files\R\R-4.2.3\bin\R.exe"' // <---------------------- Replace with the location of Rterm.exe or R.exe in your computer --------------------

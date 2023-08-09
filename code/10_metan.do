@@ -30,7 +30,7 @@
 	drop mda order stat
 
 	export delimited using "${output_tables}/table1.csv", replace
-	export excel 	 using "${output_tables}/table1.xls", replace
+	export excel 	 using "${output}/Formatted tables.xlsx", sheet("t1_raw") sheetreplace
 }
 ********************************************************************************
 **# Table 2: Random-effects and fixed-effect estimates
@@ -73,7 +73,12 @@
 	}
 
 	estout matrix(R) using "${output_tables}/table2.csv", replace delimiter(",")
-	estout matrix(R) using "${output_tables}/table2.xls", replace
+
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("t2_raw") sheetreplace cell(B3)
+	restore
 }
 
 * Data for figure 5
@@ -151,9 +156,9 @@
 		local save append
 	}
 	
-	import delimited 	"${output_tables}/table3.csv", clear
-	export excel using 	"${output_tables}/table3.xls", replace
-
+	import delimited "${output_tables}/table3.csv", clear
+	destring _all, force replace
+	export excel 	 using "${output}/Formatted tables.xlsx", sheet("t3_raw") sheetreplace
 }
 ********************************************************************************
 **# Table S2: Statistical power to detect effects that render deworming MDA cost-effective relative to alternative policies
@@ -282,7 +287,12 @@
 		
 	mat full = A \ B
 	estout matrix(full) using "${output_tables}/tableS2.csv", replace delimiter(",")
-	estout matrix(full) using "${output_tables}/tableS2.xls", replace
+	
+	preserve
+		clear 
+		svmat full
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts2_raw") sheetreplace cell(B3)
+	restore
 		
 	* For Campbell power calculations, refer to code under Table S3.
 }
@@ -317,6 +327,12 @@
 
 	estout matrix(R) using "${output_tables}/tableS3.csv", replace delimiter(",")
 	estout matrix(R) using "${output_tables}/tableS3.xls", replace
+
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts3_raw") sheetreplace cell(B3)
+	restore
 
 }
 ********************************************************************************
@@ -362,7 +378,13 @@
 	}
 
 	estout matrix(R) using "${output_tables}/tableS4.csv", replace delimiter(",")
-	estout matrix(R) using "${output_tables}/tableS4.xls", replace
+
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts4_raw") sheetreplace cell(B3)
+	restore
+
 }
 
 ********************************************************************************
@@ -401,6 +423,12 @@
 	estout matrix(R) using "${output_tables}/tableS5.csv", replace delimiter(",")
 	estout matrix(R) using "${output_tables}/tableS5.xls", replace
 
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts5_raw") sheetreplace cell(B3)
+	restore
+
 }
 ********************************************************************************
 **# Table S6: Robustness to exclusion of additional studies
@@ -436,9 +464,15 @@
 		local ++j
 		local ++j
 	}	
-	
+
 	estout matrix(R) using "${output_tables}/tableS6.csv", replace delimiter(",")
 	estout matrix(R) using "${output_tables}/tableS6.xls", replace
 
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts6_raw") sheetreplace cell(B3)
+	restore
 }
+
 ********************************************************************************
