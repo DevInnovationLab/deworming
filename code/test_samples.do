@@ -1,6 +1,5 @@
 	use "${data}/main/mda_tt.dta", clear
 	
-	
 	foreach var of global outcomes {
 		foreach estimate in pe se {
 			gen 	`estimate'`var'3 = `estimate'`var'_c2
@@ -23,7 +22,7 @@
 				cap mat drop col
 				
 				foreach sample in "(TMSDGsample`var' == 1 | more`var' == 1) & mda == 1" /// our sample
-								  "(TMSDGsample`var' == 1) & (mda == 1)" { // Taylor-Robinson sample 
+								  "(TMSDGsample`var' == 1)" { // Taylor-Robinson sample 
 								  
 					foreach estimates in "pe`var'2 se`var'2" /// our estimates
 										 "pe`var'3 se`var'3" { // Taylor-Robinson estimates
