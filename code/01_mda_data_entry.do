@@ -2010,7 +2010,6 @@ label var nmuacc2 "Final number of observations control group for MUAC analysis"
 gen 	TMSDGsamplehem =  inlist(trial, "Dossa 2001a", ///
 										"Dossa 2001b", ///
 										"Le Huong 2007a", ///
-										"Le Huong 2007b", ///
 										"Kruger 1996a", ///
 										"Awasthi 2000", ///
 										"Goto 2009", ///
@@ -2023,9 +2022,11 @@ lab var TMSDGsamplehem "TMSDG's hemoglobin sample"
 
 gen 	morehem = inlist(trial, "Kruger 1996b", ///
 								"Liu 2017", ///
+								"Le Huong 2007b", ///
 								"Ostwald 1984", ///
 								"Carmona-Fonseca 2015a", ///
 								"Carmona-Fonseca 2015b")
+								
 lab var morehem "Additional estimates on hemoglobin"
 
 foreach var in pehemob sehemob nhemobc nhemobt {

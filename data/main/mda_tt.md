@@ -4,9 +4,9 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 - **Number of variables:** 157
 - **ID variable(s):** trial
 - **.dta version used:** 14
-- **Data signature:** 41:157(69111):4153069650:348004921
+- **Data signature:** 41:157(69111):1824492254:1387176625
 - **Last saved by:** User info withheld, see option userinfo in command iesave.
-- **Last saved at:** 14:15:44 15 Jun 2023
+- **Last saved at:** 13:41:14 6 Jul 2023
 
 ## Variable type: String
 
@@ -26,8 +26,8 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 |---|---|---|---|---|---|---|---|---|---|---|
 | TMSDGsampleh | "TMSDG's height sample" | byte | 34 | .2353 | .4306 | 0 | 0 | 0 | 0 | 1 |
 | TMSDGsampleheight | "" | byte | 34 | .2353 | .4306 | 0 | 0 | 0 | 0 | 1 |
-| TMSDGsamplehem | "TMSDG's hemoglobin sample" | byte | 34 | .2647 | .4478 | 0 | 0 | 0 | 1 | 1 |
-| TMSDGsamplehemob | "" | byte | 34 | .2647 | .4478 | 0 | 0 | 0 | 1 | 1 |
+| TMSDGsamplehem | "TMSDG's hemoglobin sample" | byte | 34 | .2353 | .4306 | 0 | 0 | 0 | 0 | 1 |
+| TMSDGsamplehemob | "" | byte | 34 | .2353 | .4306 | 0 | 0 | 0 | 0 | 1 |
 | TMSDGsamplem | "TMSDG's MUAC sample" | byte | 34 | .1176 | .327 | 0 | 0 | 0 | 0 | 1 |
 | TMSDGsamplemuac | "" | byte | 34 | .1176 | .327 | 0 | 0 | 0 | 0 | 1 |
 | TMSDGsamplew | "TMSDG's weight sample" | byte | 34 | .3235 | .4749 | 0 | 0 | 0 | 1 | 1 |
@@ -39,8 +39,8 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 | mda | "" | byte | 40 | .825 | .3848 | 0 | 1 | 1 | 1 | 1 |
 | moreh | "Additional estimates on (raw) height" | byte | 34 | .4118 | .4996 | 0 | 0 | 0 | 1 | 1 |
 | moreheight | "" | byte | 34 | .4118 | .4996 | 0 | 0 | 0 | 1 | 1 |
-| morehem | "Additional estimates on hemoglobin" | byte | 34 | .1471 | .3595 | 0 | 0 | 0 | 0 | 1 |
-| morehemob | "" | byte | 34 | .1471 | .3595 | 0 | 0 | 0 | 0 | 1 |
+| morehem | "Additional estimates on hemoglobin" | byte | 34 | .1765 | .387 | 0 | 0 | 0 | 0 | 1 |
+| morehemob | "" | byte | 34 | .1765 | .387 | 0 | 0 | 0 | 0 | 1 |
 | morem | "Additional estimates on MUAC" | byte | 34 | .08824 | .2879 | 0 | 0 | 0 | 0 | 1 |
 | moremuac | "" | byte | 34 | .08824 | .2879 | 0 | 0 | 0 | 0 | 1 |
 | morew1 | "Additional estimates on (raw) weight incorporated in NBER paper" | byte | 34 | .3235 | .4749 | 0 | 0 | 0 | 1 | 1 |
@@ -55,11 +55,11 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 | nheightt_c | "Number of observations in treatment group for height analysis from TMSDG" | int | 10 | 117.4 | 172.9 | 25 | 37 | 66 | 100 | 601 |
 | nheightt_c2 | "Number of observations in treatment group for height analysis from TMDCG" | int | 16 | 147.5 | 200.4 | 25 | 38 | 53 | 108 | 601 |
 | nhemobc | "Number of observations in control group for hemoglobin analysis" | int | 15 | 148.8 | 172.9 | 1 | 36 | 56 | 293 | 572 |
-| nhemobc2 | "Final number of observations control group for hemoglobin analysis" | int | 13 | 167.4 | 178.7 | 32 | 37 | 79 | 293 | 572 |
+| nhemobc2 | "Final number of observations control group for hemoglobin analysis" | int | 13 | 167.9 | 178.4 | 32 | 37 | 82 | 293 | 572 |
 | nhemobc_c | "Number of observations in control group for hemoglobin analysis from TMSDG" | int | 9 | 192.3 | 237.8 | 32 | 37 | 82 | 162 | 726 |
 | nhemobc_c2 | "Number of observations in control group for hemoglobin analysis from TMDCG" | int | 12 | 137.3 | 178.8 | 32 | 36.5 | 57.5 | 122 | 572 |
 | nhemobt | "Number of observations in treatment group for hemoglobin analysis" | int | 15 | 159.3 | 191.9 | 1 | 37 | 63 | 293 | 601 |
-| nhemobt2 | "Final number of observations in treatment group for hemoglobin analysis" | int | 13 | 179.4 | 198.9 | 34 | 38 | 79 | 293 | 601 |
+| nhemobt2 | "Final number of observations in treatment group for hemoglobin analysis" | int | 13 | 178.8 | 199.2 | 34 | 38 | 79 | 293 | 601 |
 | nhemobt_c | "Number of observations in treatment group for hemoglobin analysis from TMSDG" | int | 9 | 207.1 | 255.3 | 34 | 38 | 86 | 158 | 697 |
 | nhemobt_c2 | "Number of observations in treatment group for hemoglobin analysis from TMDCG" | int | 12 | 148.8 | 199.8 | 34 | 37.5 | 65.5 | 122 | 601 |
 | nmuacc | "Number of observations in control group for MUAC analysis" | int | 6 | 50.33 | 37.87 | 7 | 28 | 36.5 | 93 | 101 |
@@ -90,10 +90,10 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 | peheight_c_mda | "" | float | 10 | .053 | .6148 | -1.19 | -.1 | .03 | .4 | 1.19 |
 | peheight_c_pw | "" | float | 15 | .331 | 4.788 | -10.29 | -.004388 | .002275 | .107 | 13.9 |
 | pehemob | "Point estimate of deworming on hemoglobin (g/dl)" | float | 15 | .1284 | .2863 | -.2054 | -.043 | .006984 | .2689 | 1 |
-| pehemob2 | "Final point estimate of deworming on hemoglobin (g/dl)" | float | 15 | .07951 | .2032 | -.4 | -.043 | .03 | .27 | .4 |
-| pehemob2_inf | "" | float | 15 | .002074 | .7103 | -2.333 | -.1096 | .0411 | .3696 | .7105 |
-| pehemob2_mda | "" | float | 15 | .08126 | .1988 | -.3738 | -.043 | .03 | .27 | .4 |
-| pehemob2_pw | "" | float | 15 | -.09663 | .602 | -2.237 | -.01575 | .006394 | .1219 | .3611 |
+| pehemob2 | "Final point estimate of deworming on hemoglobin (g/dl)" | float | 15 | .07558 | .2048 | -.4 | -.043 | .006984 | .27 | .4 |
+| pehemob2_inf | "" | float | 15 | -.003314 | .7103 | -2.333 | -.1096 | .01552 | .3696 | .7105 |
+| pehemob2_mda | "" | float | 15 | .07733 | .2005 | -.3738 | -.043 | .006984 | .27 | .4 |
+| pehemob2_pw | "" | float | 15 | -.0974 | .6019 | -2.237 | -.01575 | .006394 | .1219 | .3611 |
 | pehemob_c | "Point estimate of deworming on hemoglobin (g/dl) from TMSDG" | float | 9 | .03 | .1344 | -.1 | -.07 | 0 | .03 | .3 |
 | pehemob_c2 | "Point estimate of deworming on hemoglobin (g/dl) from TMDCG" | float | 12 | .06667 | .1549 | -.1 | -.055 | .005 | .235 | .3 |
 | pehemob_c_inf | "" | float | 11 | -1.047 | 3.069 | -10 | -.4 | 0 | .3448 | .5172 |
@@ -176,7 +176,7 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 | Prevalence | "" | prevlabel | 33 | 3 | 0 | Worm Prevalence >= 50:20 Worm Prevalence < 20:7 20 <= Worm Prevalence < 50:6 |
 | Prevalence2 | "RECODE of Prevalence" | prev2label | 33 | 2 | 0 | Worm Prevalence >= 20:26 Worm Prevalence < 20:7 |
 | theight | "Type of estimate for height" | estimates | 27 | 3 | 0 | diff-in-diff:22 ANCOVA:4 endline comparison:1 |
-| themob | "Type of estimate for hemoglobin" | estimates | 15 | 3 | 0 | diff-in-diff:9 ANCOVA:3 endline comparison:3 |
+| themob | "Type of estimate for hemoglobin" | estimates | 15 | 3 | 0 | diff-in-diff:9 endline comparison:3 ANCOVA:3 |
 | tmuac | "Type of estimate for MUAC" | estimates | 7 | 2 | 0 | diff-in-diff:6 ANCOVA:1 |
 | tweight | "Type of estimate for weight" | estimates | 31 | 2 | 0 | diff-in-diff:26 ANCOVA:5 |
 

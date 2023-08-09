@@ -1,7 +1,7 @@
 model_desc,weight,muac,height,hemob
-Half-normal distribution; diffuse priors,.215,.23100001,.068999998,.048999999
-Half-normal distribution; diffuse priors,.043000001,.11,.037,.035
-Skew-normal distribution; diffuse priors,.17200001,.13699999,.064000003,.039999999
+Half-normal distribution; diffuse priors,.215,.23100001,.068999998,.046
+Half-normal distribution; diffuse priors,.043000001,.11,.037,.034000002
+Skew-normal distribution; diffuse priors,.17200001,.13699999,.064000003,.037
 Skew-normal distribution; diffuse priors,.057,.18799999,.045000002,.039999999
-Skew-normal distribution; diffuse priors,9.0459995,.105,-.50099999,.86199999
-Skew-normal distribution; diffuse priors,5.7779999,10.012,10.414,10.229
+Skew-normal distribution; diffuse priors,9.0459995,.105,-.50099999,.017999999
+Skew-normal distribution; diffuse priors,5.7779999,10.012,10.414,10.375

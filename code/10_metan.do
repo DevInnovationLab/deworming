@@ -31,7 +31,6 @@
 
 	export delimited using "${output_tables}/table1.csv", replace
 	export excel 	 using "${output}/Formatted tables.xlsx", sheet("t1_raw") sheetreplace
-
 }
 ********************************************************************************
 **# Table 2: Random-effects and fixed-effect estimates
@@ -74,13 +73,12 @@
 	}
 
 	estout matrix(R) using "${output_tables}/table2.csv", replace delimiter(",")
-	
+
 	preserve
 		clear 
 		svmat R
 		export excel using "${output}/Formatted tables.xlsx", sheet("t2_raw") sheetreplace cell(B3)
 	restore
-
 }
 
 * Data for figure 5
@@ -161,7 +159,6 @@
 	import delimited "${output_tables}/table3.csv", clear
 	destring _all, force replace
 	export excel 	 using "${output}/Formatted tables.xlsx", sheet("t3_raw") sheetreplace
-
 }
 ********************************************************************************
 **# Table S2: Statistical power to detect effects that render deworming MDA cost-effective relative to alternative policies
@@ -329,6 +326,7 @@
 	}
 
 	estout matrix(R) using "${output_tables}/tableS3.csv", replace delimiter(",")
+	estout matrix(R) using "${output_tables}/tableS3.xls", replace
 
 	preserve
 		clear 
@@ -380,7 +378,7 @@
 	}
 
 	estout matrix(R) using "${output_tables}/tableS4.csv", replace delimiter(",")
-	
+
 	preserve
 		clear 
 		svmat R
@@ -421,7 +419,9 @@
 		local col = `col'+1
 	}	
 
+	matrix R = R'
 	estout matrix(R) using "${output_tables}/tableS5.csv", replace delimiter(",")
+	estout matrix(R) using "${output_tables}/tableS5.xls", replace
 
 	preserve
 		clear 
@@ -466,6 +466,7 @@
 	}	
 
 	estout matrix(R) using "${output_tables}/tableS6.csv", replace delimiter(",")
+	estout matrix(R) using "${output_tables}/tableS6.xls", replace
 
 	preserve
 		clear 
