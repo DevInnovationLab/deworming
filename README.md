@@ -18,12 +18,7 @@ The code was last run on a **10-core Intel-based laptop with Windows 10 and 16GB
 
 ### Software Requirements
 
-- **Stata** code was last run with version 17. The following community-contributed packages are installed in lines (21-35 of `main.do`):
-  - `estout` (version 3.31  26apr2022)
-  - `ietoolkit` (version 7.2 04APR2023)
-  - `metan` (version 4.06  12oct2022)
-  - `metareg` (v2.6.1 4Nov2008)
-  - `rsource` (Date: 27 February 2014)
+- **Stata** code was last run with version 18. The exact versions of all community-contributed packages last used are included in `code/ado`.
 - **R** code was last run with version 4.2.3. The exact versions of all packages last used are listed in `renv.lock`. To install these versions, launch the R project `deworming.RProj` and run `renv::restore()`.
 
 ### Controlled Randomness
@@ -34,9 +29,9 @@ Script `07_bayesian hierarchical models.R` runs simulations and a random seed is
 
 All scripts used for data creation and analysis are included in `code`. Scripts 01-03 create or import the raw data in `data/raw`. Scripts 04 and 05 reformat the raw data for use with different functions. Scripts 06-11 analyze the data. See `main.do` for a detailed description of inputs and outputs of each script.
 
-[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](http://unlicense.org/) 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) 
 
-The code is licensed under an Unlicense license. See [LICENSE.txt](LICENSE.txt) for details.
+The code is licensed under a Creative Commons Attribution 4.0 license. See [LICENSE.txt](LICENSE.txt) for details.
 
 ## Instructions to Replicators
 
