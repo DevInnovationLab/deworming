@@ -1497,7 +1497,7 @@ replace flag_sd=0 in 25
 **## Willett 1979 ==============================================================
 replace trial="Willett 1979" in 26 /*Individual RCT*/
 replace name="Willett, Kilama adn Kihamia (1979)" in 26
-replace N="individualss" in 26
+replace N="individuals" in 26
 replace country="Tanzania" in 26
 replace doses=4 in 26
 replace drug="Levamisole 2.5mg/kg" in 26

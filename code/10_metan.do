@@ -9,11 +9,15 @@
 	        ((moreweight | moremuac | moreheight | morehemob) & mda == 1) | ///
 		    (infected == 1 & trial != "Stephenson 1993 1d (I)")
 
-	local vars peweight seweight peheight seheight pemuac semuac pehemob sehemob
-
-	foreach var of local vars {
-		replace `var' = `var'_c if !missing(`var'_c)
-		replace `var' = `var'2 	if mda == 0
+	foreach outcome of global outcomes {
+		foreach stat in pe se {
+			local var `stat'`outcome'
+			
+			replace `var' = `var'2 	if !missing(`var'2)
+			replace `var' = `var'_c if  missing(`var')
+			
+		}
+		
 	}
 
 	keep 	mda trial `vars' prevalence_exact
@@ -326,8 +330,7 @@
 	}
 
 	estout matrix(R) using "${output_tables}/tableS3.csv", replace delimiter(",")
-	estout matrix(R) using "${output_tables}/tableS3.xls", replace
-
+	
 	preserve
 		clear 
 		svmat R
@@ -421,8 +424,7 @@
 
 	matrix R = R'
 	estout matrix(R) using "${output_tables}/tableS5.csv", replace delimiter(",")
-	estout matrix(R) using "${output_tables}/tableS5.xls", replace
-
+	
 	preserve
 		clear 
 		svmat R
@@ -466,8 +468,7 @@
 	}	
 
 	estout matrix(R) using "${output_tables}/tableS6.csv", replace delimiter(",")
-	estout matrix(R) using "${output_tables}/tableS6.xls", replace
-
+	
 	preserve
 		clear 
 		svmat R
