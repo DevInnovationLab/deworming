@@ -8,9 +8,9 @@ The code in this replication package recreates the main data set and results in 
 
 The raw data used in the paper can be found in `data/raw`. The two main raw datasets are `mda.dta`, containing data from MDA trials and created by script 01, and `tt.dta`, contaning data from test-and-treat trials and created by script 02. The data from the Campbell Systematic Reviews was provided by the authors of that study. 
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) 
+[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](http://unlicense.org/) 
 
-The data is licensed under a Creative Commons Attribution 4.0 license. See [LICENSE.txt](LICENSE.txt) for details.
+The data is licensed under an Unlicense license. See [LICENSE.txt](LICENSE.txt) for details.
 
 ## Computational requirements
 
