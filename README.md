@@ -53,7 +53,7 @@ The provided code reproduces all tables and figures in the paper, except for the
 |-------------------|--------------------------------|-------------|----------------------------------|---------------------------------|
 | Table 1           | `code/10_metan.do`             | 2           | output/tables/table1.csv   ||
 | Table 2           | `code/10_metan.do`             | 47          | output/tables/table2.csv         ||
-| Table 3           | `code/10_metan.do`             | 125         | output/tables/table3.csv         | Columns 7-12? |
+| Table 3           | `code/10_metan.do`             | 125         | output/tables/table3.csv         | Columns 7-12 use estimates from GiveWell (2017), Kristjansson et al. (2007), Kristjansson et al. (2015a), Kristjansson et al. (2016), and Neumann (2003).  |
 | Figure 1          | `code/06_forest_plots.R`       |             | output/figures/figure1.png       ||
 | Figure 2          | `code/06_forest_plots.R`       |             | output/figures/figure2.png       ||
 | Figure 3          | `code/06_forest_plots.R`       |             | output/figures/figure3.png       ||
@@ -64,8 +64,9 @@ The provided code reproduces all tables and figures in the paper, except for the
 | Table S4          | `code/10_metan.do`             | 320         | output/tables/tableS4.csv        ||
 | Table S5          | `code/10_metan.do`             | 365         | output/tables/tableS5.csv        ||
 | Table S6          | `code/10_metan.do`             | 400         | output/tables/tableS6.csv        ||
-| Table S7          | | | | This table is created in Excel using values from tables 2 and 3 doing additional calculations.  |
+| Table S7          | | | | This table is created in Excel using values from tables 2 and 3  |
 | Table S8          | `code/08_clean_stan_output.do` |             | output/tables/tableS8.csv        ||
-| Table F1          | `code/09_publication_bias.R`   | 75          | output/tables/tableF1.png        | Panels B and C were created by inputing the data in `data/pub_bias` into [this app](https://maxkasy.github.io/home/metastudy/) |
-| Table F2          | `code/09_publication_bias.R`   | 75          | output/tables/tableF1.png        | Panels B and C were created by inputing the data in `data/pub_bias` into [this app](https://maxkasy.github.io/home/metastudy/) |
+| Table F           |                                |             |                                  ||
+| Table F1          | `code/09_publication_bias.R`   | 162         | output/tables/andrews-kasy-bias-1.csv ||
+| Table F2          | `code/09_publication_bias.R`   | 252         | output/tables/andrews-kasy-bias-2.csv ||
 | Figure F1         | `code/09_publication_bias.R`   | 48          | output/figures/figureF1.png      ||
