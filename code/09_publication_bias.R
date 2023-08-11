@@ -214,8 +214,8 @@ table <-
   rbind(
     weight,
     height,
-    hemo,
-    arm
+    arm,
+    hemo
   ) %>%
   as.data.frame() %>%
   setNames(c("mean_diff", "se_mean_diff", "beta_p"))
@@ -306,8 +306,8 @@ table <-
   rbind(
     weight,
     height,
-    hemo,
-    arm
+    arm,
+    hemo
   ) %>%
   as.data.frame() %>%
   setNames(c("mean_diff", "se_mean_diff", "beta_p"))
