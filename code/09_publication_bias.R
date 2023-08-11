@@ -159,7 +159,7 @@ saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
 source("code/functions/metastudiesfunctions.R")
 
 
-# Estimates ----------------------------
+# MDA ----------------------------
 
 df_weight <- df_mda %>% filter(outcome == "weight (kg)")
 weight <-
@@ -249,7 +249,7 @@ addWorksheet(wb, "tF1_2_raw")
 writeData(wb,"tF1_2_raw", table, rowNames=TRUE)
 saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
 
-# Estimates ----------------------------
+# MDA + test and treat ----------------------------
 
 df_mda_tt <- data %>% filter(group == "mda" | group == "tt")
 
