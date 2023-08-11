@@ -9,25 +9,55 @@
 	        ((moreweight | moremuac | moreheight | morehemob) & mda == 1) | ///
 		    (infected == 1 & trial != "Stephenson 1993 1d (I)")
 
-	local vars peweight seweight peheight seheight pemuac semuac pehemob sehemob
-
-	foreach var of local vars {
-		replace `var' = `var'_c if !missing(`var'_c)
-		replace `var' = `var'2 	if mda == 0
+	foreach outcome of global outcomes {
+		foreach stat in pe se {
+			local var `stat'`outcome'
+			
+			replace `var' = `var'2 	if !missing(`var'2)
+			replace `var' = `var'_c if  missing(`var')
+			
+		}
+		
+		gen 	n`outcome' = n`outcome't2   + n`outcome'c2   if !missing(n`outcome't2)
+		replace n`outcome' = n`outcome't_c  + n`outcome'c_c  if  missing(n`outcome')
 	}
 
-	keep 	mda trial `vars' prevalence_exact
+	keep 	mda trial *weight *height *muac *hemob prevalence_exact N
+	keep 	mda trial se* pe* n* prevalence_exact N
+	
 	reshape long @weight @height @muac @hemob, i(trial) j(stat) string
+	
+	preserve
+		keep if stat == "n"
+		gen order = 1
+		
+		keep ${outcomes} trial order N
+		tostring ${outcomes}, replace
+		
+		foreach var of global outcomes {
+			rename 	`var' 	 n`var'
+			replace n`var' = "" if n`var' == "."
+			replace n`var' = n`var' + "†" if (N == "clusters") & !missing(n`var')
+		}
+				
+		tempfile n
+		save `n', replace
+
+	restore
+	
+	drop if stat == "n"
 	encode stat, gen(order)
-
-	replace trial = subinstr(trial, " (I)", "", .)
-
+	
 	replace mda = 1 - mda
+	
+	merge 1:1 trial order using `n', assert(1 3) nogen
+
 	sort 	mda trial order
+	replace trial = subinstr(trial, " (I)", "", .)
 
 	replace prevalence_exact = . 	if order == 2
 	replace trial = "" 				if order == 2
-	drop mda order stat
+	drop mda order stat N
 
 	export delimited using "${output_tables}/table1.csv", replace
 	export excel 	 using "${output}/Formatted tables.xlsx", sheet("t1_raw") sheetreplace
@@ -326,8 +356,7 @@
 	}
 
 	estout matrix(R) using "${output_tables}/tableS3.csv", replace delimiter(",")
-	estout matrix(R) using "${output_tables}/tableS3.xls", replace
-
+	
 	preserve
 		clear 
 		svmat R
@@ -421,8 +450,7 @@
 
 	matrix R = R'
 	estout matrix(R) using "${output_tables}/tableS5.csv", replace delimiter(",")
-	estout matrix(R) using "${output_tables}/tableS5.xls", replace
-
+	
 	preserve
 		clear 
 		svmat R
@@ -466,8 +494,7 @@
 	}	
 
 	estout matrix(R) using "${output_tables}/tableS6.csv", replace delimiter(",")
-	estout matrix(R) using "${output_tables}/tableS6.xls", replace
-
+	
 	preserve
 		clear 
 		svmat R
