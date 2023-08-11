@@ -1,2 +1,1 @@
-This is a placeholder folder where ado-files for community-contributed Stata commands.
-These are installed in lines 21-35 of `main.do`.
+The software in this directory was obtained from the [Boston College Statistical Software Components (SSC) archive](http://repec.org/docs/ssc.php) and is licensed under [GPL 3](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text).
