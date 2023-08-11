@@ -127,7 +127,7 @@ tryCatch(
   {
     removeWorksheet(wb, "tF1_raw")
   }, error = function(cond) {
-    
+
   }
 )
 addWorksheet(wb, "tF1_raw")
@@ -144,7 +144,7 @@ tryCatch(
   {
     removeWorksheet(wb, "tF2_raw")
   }, error = function(cond) {
-    
+
   }
 )
 addWorksheet(wb, "tF2_raw")
@@ -161,24 +161,13 @@ source("code/functions/metastudiesfunctions.R")
 
 # Estimates ----------------------------
 
-total <-
-  metastudies_estimation(
-    df_mda$mean_diff, 
-    df_mda$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
-    model = "normal"
-  ) %>%
-  bind_cols() %>%
-  t()
-
 df_weight <- df_mda %>% filter(outcome == "weight (kg)")
 weight <-
   metastudies_estimation(
-    df_weight$mean_diff, 
-    df_weight$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
+    df_weight$mean_diff,
+    df_weight$se_mean_diff,
+    cutoffs = 1.96,
+    symmetric = TRUE,
     model = "normal"
   ) %>%
   bind_cols() %>%
@@ -187,10 +176,10 @@ weight <-
 df_height <- df_mda %>% filter(outcome == "height (cm)")
 height <-
   metastudies_estimation(
-    df_height$mean_diff, 
-    df_height$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
+    df_height$mean_diff,
+    df_height$se_mean_diff,
+    cutoffs = 1.96,
+    symmetric = TRUE,
     model = "normal"
   ) %>%
   bind_cols() %>%
@@ -199,10 +188,10 @@ height <-
 df_hemo <- df_mda %>% filter(outcome == "Haemoglobin")
 hemo <-
   metastudies_estimation(
-    df_hemo$mean_diff, 
-    df_hemo$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
+    df_hemo$mean_diff,
+    df_hemo$se_mean_diff,
+    cutoffs = 1.96,
+    symmetric = TRUE,
     model = "normal"
   ) %>%
   bind_cols() %>%
@@ -211,10 +200,10 @@ hemo <-
 df_arm <- df_mda %>% filter(outcome == "mid-upper arm circumference (cm)")
 arm <-
   metastudies_estimation(
-    df_arm$mean_diff, 
-    df_arm$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
+    df_arm$mean_diff,
+    df_arm$se_mean_diff,
+    cutoffs = 1.96,
+    symmetric = TRUE,
     model = "normal"
   ) %>%
   bind_cols() %>%
@@ -223,7 +212,6 @@ arm <-
 # Prepare table ------------------------------
 table <-
   rbind(
-    total,
     weight,
     height,
     hemo,
@@ -235,7 +223,7 @@ table <-
 rownames(table) <-
   paste(
     map(
-      c(c("mortality"), outcomes), 
+      c(outcomes),
       ~ rep(., 2)
     ) %>% unlist,
     rep(
@@ -254,7 +242,7 @@ tryCatch(
   {
     removeWorksheet(wb, "tF1_2_raw")
   }, error = function(cond) {
-    
+
   }
 )
 addWorksheet(wb, "tF1_2_raw")
@@ -265,24 +253,13 @@ saveWorkbook(wb, "output/Formatted tables.xlsx", overwrite = TRUE)
 
 df_mda_tt <- data %>% filter(group == "mda" | group == "tt")
 
-total <-
-  metastudies_estimation(
-    df_mda_tt$mean_diff, 
-    df_mda_tt$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
-    model = "normal"
-  ) %>%
-  bind_cols() %>%
-  t()
-
 df_weight <- df_mda_tt %>% filter(outcome == "weight (kg)")
 weight <-
   metastudies_estimation(
-    df_weight$mean_diff, 
-    df_weight$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
+    df_weight$mean_diff,
+    df_weight$se_mean_diff,
+    cutoffs = 1.96,
+    symmetric = TRUE,
     model = "normal"
   ) %>%
   bind_cols() %>%
@@ -291,10 +268,10 @@ weight <-
 df_height <- df_mda_tt %>% filter(outcome == "height (cm)")
 height <-
   metastudies_estimation(
-    df_height$mean_diff, 
-    df_height$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
+    df_height$mean_diff,
+    df_height$se_mean_diff,
+    cutoffs = 1.96,
+    symmetric = TRUE,
     model = "normal"
   ) %>%
   bind_cols() %>%
@@ -303,10 +280,10 @@ height <-
 df_hemo <- df_mda_tt %>% filter(outcome == "Haemoglobin")
 hemo <-
   metastudies_estimation(
-    df_hemo$mean_diff, 
-    df_hemo$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
+    df_hemo$mean_diff,
+    df_hemo$se_mean_diff,
+    cutoffs = 1.96,
+    symmetric = TRUE,
     model = "normal"
   ) %>%
   bind_cols() %>%
@@ -315,10 +292,10 @@ hemo <-
 df_arm <- df_mda_tt %>% filter(outcome == "mid-upper arm circumference (cm)")
 arm <-
   metastudies_estimation(
-    df_arm$mean_diff, 
-    df_arm$se_mean_diff, 
-    cutoffs = 1.96, 
-    symmetric = TRUE, 
+    df_arm$mean_diff,
+    df_arm$se_mean_diff,
+    cutoffs = 1.96,
+    symmetric = TRUE,
     model = "normal"
   ) %>%
   bind_cols() %>%
@@ -327,7 +304,6 @@ arm <-
 # Prepare table ------------------------------
 table <-
   rbind(
-    total,
     weight,
     height,
     hemo,
@@ -339,7 +315,7 @@ table <-
 rownames(table) <-
   paste(
     map(
-      c(c("mortality"), outcomes), 
+      outcomes,
       ~ rep(., 2)
     ) %>% unlist,
     rep(
@@ -358,7 +334,7 @@ tryCatch(
   {
     removeWorksheet(wb, "tF2_2_raw")
   }, error = function(cond) {
-    
+
   }
 )
 addWorksheet(wb, "tF2_2_raw")
