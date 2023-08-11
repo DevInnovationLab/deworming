@@ -7,7 +7,7 @@ COPYRIGHT 2023 Development Innovation Lab
 
 applies to all files in the `code`, `output`, and `documentation` folder, with the exception of the `code/ado` folder.
 
-([![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)) 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 applies to all files in `code/ado`.
 
