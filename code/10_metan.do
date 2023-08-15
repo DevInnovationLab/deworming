@@ -503,3 +503,94 @@
 }
 
 ********************************************************************************
+**# Figure XXX (data)
+********************************************************************************
+
+* Create a blank dataset to fill with results --------------------------------
+
+	clear
+	
+	gen sample = ""
+	gen estimates = ""
+	gen prevalence = ""
+	gen pe = .
+	gen se = .
+	gen ll95 = .
+	gen ul95 = .
+	gen ll90 = .
+	gen ul90 = .
+		
+	tempfile results
+	save 	`results' , replace
+	
+* Prepare data to estimate with different samples and estimates --------------
+
+	use "${data}/main/mda_tt.dta", clear
+	
+	* Create a variables that uses Taylor-Robinson estimates whenever they are available
+	* and this paper's estimates when they are not
+	foreach var of global outcomes {
+		foreach estimate in pe se {
+			gen 	`estimate'`var'3 = `estimate'`var'_c2
+			replace `estimate'`var'3 = `estimate'`var'2 	if missing(`estimate'`var'3)
+		}
+	}
+	
+* Estimate random effects model with different samples and estimates ---------
+
+	foreach prevalence in "" "& Prevalence2 == 2" {
+		
+		if missing("`prevalence'")  local table all
+		else						local table highprev
+		
+		foreach var of global outcomes {	
+				
+			foreach sample in "(TMSDGsample`var' == 1 | more`var' == 1) & mda == 1" /// our sample
+							  "(TMSDGsample`var' == 1)" { // Taylor-Robinson sample 
+							  
+				foreach estimates in "pe`var'2 se`var'2" /// our estimates
+									 "pe`var'3 se`var'3" { // Taylor-Robinson estimates
+							
+					* Our estimates on our studies
+					metan `estimates' if `sample' `prevalence', `effect' nograph
+					
+					preserve
+						use `results', clear 
+						
+						local obs = _N + 1
+						set obs `obs' 
+						
+						replace se 			= r(ES)   			in `obs'
+						replace pe 			= r(seES) 			in `obs'
+						replace sample 		= "`sample'" 		in `obs'
+						replace prevalence 	= "`prevalence'"	in `obs'
+						replace estimates 	= "`estimates'" 	in `obs'
+						replace ll95 		= pe - 1.96 * se	in `obs'
+						replace ul95 		= pe + 1.96 * se	in `obs'
+						replace ll90 		= pe - 1.65 * se	in `obs'
+						replace ul90 		= pe + 1.65 * se	in `obs'
+						
+						save 	`results' , replace
+					restore
+					
+				}
+			}
+		}
+	}
+
+* Clean and export results ---------------------------------------------------
+
+	use `results', clear
+
+	replace sample = "This paper's" 				if regex(sample, "more")
+	replace sample = "Taylor-Robinson (2019)" 		if sample != "This paper's"
+	replace prevalence = "Any"						if missing(prevalence)
+	replace prevalence = "> 20%"					if prevalence != "Any"
+	replace estimates = "This paper's"				if regex(estimates, "2")
+	replace estimates = "Taylor-Robinson (2019)"	if regex(estimates, "3")
+
+	export delimited using "${output}/tables/compare_decisions.csv"
+	
+*********************************************************************** The end.
+
+********************************************************************************
