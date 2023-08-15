@@ -503,7 +503,8 @@
 }
 
 ********************************************************************************
-**# Figure XXX (data)
+**# Figure S1: Random effects estimates under different combinations of studies 
+*			   sample and data extraction procedures
 ********************************************************************************
 
 * Create a blank dataset to fill with results --------------------------------
@@ -513,6 +514,8 @@
 	gen sample = ""
 	gen estimates = ""
 	gen prevalence = ""
+	gen outcome = ""
+	gen n = .
 	gen pe = .
 	gen se = .
 	gen ll95 = .
@@ -552,7 +555,7 @@
 									 "pe`var'3 se`var'3" { // Taylor-Robinson estimates
 							
 					* Our estimates on our studies
-					metan `estimates' if `sample' `prevalence', `effect' nograph
+					metan `estimates' if `sample' `prevalence', random nograph
 					
 					preserve
 						use `results', clear 
@@ -560,15 +563,17 @@
 						local obs = _N + 1
 						set obs `obs' 
 						
-						replace se 			= r(ES)   			in `obs'
-						replace pe 			= r(seES) 			in `obs'
+						replace pe 			= r(ES)   			in `obs'
+						replace se 			= r(seES) 			in `obs'
 						replace sample 		= "`sample'" 		in `obs'
 						replace prevalence 	= "`prevalence'"	in `obs'
 						replace estimates 	= "`estimates'" 	in `obs'
-						replace ll95 		= pe - 1.96 * se	in `obs'
-						replace ul95 		= pe + 1.96 * se	in `obs'
-						replace ll90 		= pe - 1.65 * se	in `obs'
-						replace ul90 		= pe + 1.65 * se	in `obs'
+						replace outcome		= "`var'"			in `obs'
+						replace ll90 		= pe - 1.96 * se	in `obs'
+						replace ul90 		= pe + 1.96 * se	in `obs'
+						replace ll95 		= pe - 1.65 * se	in `obs'
+						replace ul95 		= pe + 1.65 * se	in `obs'
+						replace n 			= r(df) + 1			in `obs'
 						
 						save 	`results' , replace
 					restore
@@ -582,15 +587,17 @@
 
 	use `results', clear
 
-	replace sample = "This paper's" 				if regex(sample, "more")
-	replace sample = "Taylor-Robinson (2019)" 		if sample != "This paper's"
-	replace prevalence = "Any"						if missing(prevalence)
-	replace prevalence = "> 20%"					if prevalence != "Any"
-	replace estimates = "This paper's"				if regex(estimates, "2")
-	replace estimates = "Taylor-Robinson (2019)"	if regex(estimates, "3")
-
-	export delimited using "${output}/tables/compare_decisions.csv"
+	replace sample = "This paper's studies" 			if regex(sample, "more")
+	replace sample = "Taylor-Robinson (2019) studies" 	if sample != "This paper's studies"
+	replace prevalence = "Full sample"					if missing(prevalence)
+	replace prevalence = "≥20% prevalence"				if prevalence != "Full sample"
+	replace estimates = "This paper's data"				if regex(estimates, "2")
+	replace estimates = "Taylor-Robinson (2019) data"	if regex(estimates, "3")
+	replace outcome = "Weight (kg)"						if outcome == "weight"
+	replace outcome = "Height (cm)"						if outcome == "height"
+	replace outcome = "MUAC (cm)"						if outcome == "muac"
+	replace outcome = "Hb (g/dL)"						if outcome == "hemob"
 	
-*********************************************************************** The end.
+	export delimited using "${output}/tables/compare_decisions.csv", replace
 
 ********************************************************************************

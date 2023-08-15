@@ -20,12 +20,27 @@ data <-
           "Weight (kg)",
           "MUAC (cm)",
           "Height (cm)",
-          "Hemoglobin (g/dL)"
+          "Hb (g/dL)"
         ),
         ordered = TRUE
       )
+  ) %>%
+  pivot_longer(
+    cols = c(ul90, ll90, ul95, ll95),
+    names_to = c(".value", "ci"),
+    names_pattern = "(..)(..)"
+  ) %>%
+  mutate(
+    ci = factor(
+      ci,
+      levels = c(90, 95),
+      labels = c("90% CI", "95% CI"),
+      ordered = TRUE
+    )
   )
 
+linesize <- .2
+fontsize <- 6.7
 
 data %>%
   ggplot(
@@ -37,33 +52,28 @@ data %>%
   geom_vline(
     xintercept = 0,
     color = "black",
-    linetype = "dotted"
+    linetype = "dotted",
+    size = linesize
   ) +
   geom_segment(
+    data = . %>% filter(ci == "95% CI"),
     aes(
-      x = ll95,
-      xend = ul95
+      x = ll,
+      xend = ul,
+      color = ci
     ),
-    color = "grey50",
-    size = 2.5,
+    linewidth = 1,
     lineend = "round"
   ) +
   geom_segment(
+    data = . %>% filter(ci == "90% CI"),
     aes(
-      x = ll90,
-      xend = ul90
+      x = ll,
+      xend = ul,
+      color = ci
     ),
-    color = "black",
-    size = 2.5,
+    linewidth = 1,
     lineend = "round"
-  ) +
-  geom_text(
-    aes(
-      x = pe,
-      label = round(pe, 3)
-    ),
-    vjust = -1,
-    size = 3
   ) +
   geom_segment(
     aes(
@@ -72,7 +82,16 @@ data %>%
       y = 8.57,
       yend = 8.57
     ),
-    color = "black"
+    color = "black",
+    size = linesize
+  ) +
+  geom_text(
+    aes(
+      x = pe,
+      label = round(pe, 3)
+    ),
+    vjust = -.8,
+    size = 2
   ) +
   geom_segment(
     aes(
@@ -81,26 +100,42 @@ data %>%
       y = .4,
       yend = .4
     ),
-    color = "black"
+    color = "black",
+    size = linesize
   ) +
   geom_point(
     aes(
       x = pe
     ),
-    size = 4,
+    size = 1,
     shape = 15
   ) +
   facet_wrap(
     ~ outcome,
     ncol = 4
   ) +
-
+  labs(
+    color = NULL
+  ) +
+ scale_color_manual(values = c("gray50", "black")) +
   theme_void() +
   theme(
-    axis.text = element_text(size = 8),
-    axis.ticks.x = element_line(color = "black", size = .5),
-    axis.ticks.length.x = unit(.15, "cm"),
-    strip.text.x = element_text(size = 8, margin = margin(.25, .25, .25, .25, "cm")),
+    text = element_text(size = fontsize),
+    axis.text = element_text(),
+    axis.text.x = element_text(),
+    axis.ticks.x = element_line(color = "black", size = linesize),
+    axis.ticks.length.x = unit(.1, "cm"),
+    strip.text.x = element_text(size = fontsize, margin = margin(.1, .1, .1, .1, "cm")),
     axis.text.y = element_text(hjust = 0),
-    strip.background = element_rect(color = "white")
+    strip.background = element_rect(color = "white"),
+    legend.position = "bottom",
+    plot.margin = margin(.1, .1, .1, .1, "cm")
+  )
+
+  ggsave(
+    "output/figures/figureS1.png",
+    width = 6.5,
+    height = 2.5,
+    units = c("in"),
+    bg = "white"
   )

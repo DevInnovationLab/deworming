@@ -1,33 +1,33 @@
-sample,estimates,prevalence,pe,se,ll95,ul95,ll90,ul90,outcome
-This paper's studies,This paper's data,Full sample,.1405084,.044232558,.053812582,.22720422,.067524679,.21349213,Weight (kg)
-This paper's studies,Taylor-Robinson (2019) data,Full sample,.12325402,.049894631,.025460547,.22104751,.040927883,.20558016,Weight (kg)
-Taylor-Robinson (2019) studies,This paper's data,Full sample,.10646329,.077798329,-.046021435,.25894803,-.021903953,.23483053,Weight (kg)
-Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,Full sample,.081680886,.098058656,-.11051408,.27387586,-.080115899,.24347767,Weight (kg)
-This paper's studies,This paper's data,Full sample,.12709759,.094657995,-.05843208,.31262726,-.0290881,.28328329,MUAC (cm)
-This paper's studies,Taylor-Robinson (2019) data,Full sample,.12709759,.094657995,-.05843208,.31262726,-.0290881,.28328329,MUAC (cm)
-Taylor-Robinson (2019) studies,This paper's data,Full sample,-.033824995,.10918115,-.24782005,.18017006,-.21397389,.1463239,MUAC (cm)
-Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,Full sample,-.033824995,.10918115,-.24782005,.18017006,-.21397389,.1463239,MUAC (cm)
-This paper's studies,This paper's data,Full sample,.064334922,.041868251,-.01772685,.1463967,-.0047476925,.13341753,Height (cm)
-This paper's studies,Taylor-Robinson (2019) data,Full sample,.062646709,.039846227,-.015451895,.14074531,-.0030995645,.12839298,Height (cm)
-Taylor-Robinson (2019) studies,This paper's data,Full sample,.013991383,.12357665,-.22821885,.25620162,-.18991008,.21789286,Height (cm)
-Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,Full sample,-.026222276,.11315589,-.24800783,.19556327,-.2129295,.16048495,Height (cm)
-This paper's studies,This paper's data,Full sample,.025549164,.026905999,-.027186593,.078284919,-.018845733,.069944061,Hemoglobin (g/dL)
-This paper's studies,Taylor-Robinson (2019) data,Full sample,.023940815,.027941097,-.030823736,.078705363,-.022161994,.070043623,Hemoglobin (g/dL)
-Taylor-Robinson (2019) studies,This paper's data,Full sample,.0044943676,.033490829,-.061147656,.070136391,-.050765499,.059754238,Hemoglobin (g/dL)
-Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,Full sample,-.010207522,.03373035,-.076319009,.055903964,-.065862603,.045447558,Hemoglobin (g/dL)
-This paper's studies,This paper's data,> 20% prevalence,.1544873,.043527562,.069173276,.23980132,.082666822,.22630778,Weight (kg)
-This paper's studies,Taylor-Robinson (2019) data,> 20% prevalence,.13125879,.04749402,.038170505,.22434707,.052893654,.20962392,Weight (kg)
-Taylor-Robinson (2019) studies,This paper's data,> 20% prevalence,.10374269,.053746659,-.0016007633,.20908614,.015060701,.19242467,Weight (kg)
-Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,> 20% prevalence,.054257531,.048050001,-.039920472,.14843553,-.025024971,.13354003,Weight (kg)
-This paper's studies,This paper's data,> 20% prevalence,.19811659,.086214304,.02913655,.36709663,.055862986,.34037018,MUAC (cm)
-This paper's studies,Taylor-Robinson (2019) data,> 20% prevalence,.19811659,.086214304,.02913655,.36709663,.055862986,.34037018,MUAC (cm)
-Taylor-Robinson (2019) studies,This paper's data,> 20% prevalence,.075403884,.06287919,-.047839329,.1986471,-.028346779,.17915455,MUAC (cm)
-Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,> 20% prevalence,.075403884,.06287919,-.047839329,.1986471,-.028346779,.17915455,MUAC (cm)
-This paper's studies,This paper's data,> 20% prevalence,.086692184,.038501728,.011228797,.16215557,.023164332,.15022004,Height (cm)
-This paper's studies,Taylor-Robinson (2019) data,> 20% prevalence,.085688017,.038548473,.010133009,.16124302,.022083037,.14929301,Height (cm)
-Taylor-Robinson (2019) studies,This paper's data,> 20% prevalence,.067619696,.085402228,-.099768668,.23500806,-.073293976,.20853338,Height (cm)
-Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,> 20% prevalence,.062401343,.085916042,-.1059941,.23079678,-.079360127,.20416281,Height (cm)
-This paper's studies,This paper's data,> 20% prevalence,.063642681,.038485643,-.011789178,.13907453,.00014137049,.12714399,Hemoglobin (g/dL)
-This paper's studies,Taylor-Robinson (2019) data,> 20% prevalence,.066400781,.041614916,-.015164454,.14796601,-.0022638305,.13506539,Hemoglobin (g/dL)
-Taylor-Robinson (2019) studies,This paper's data,> 20% prevalence,.063029103,.073449083,-.080931097,.2069893,-.058161885,.18422009,Hemoglobin (g/dL)
-Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,> 20% prevalence,.0027020217,.079493336,-.15310492,.15850896,-.12846199,.13386603,Hemoglobin (g/dL)
+sample,estimates,prevalence,outcome,n,pe,se,ll95,ul95,ll90,ul90
+This paper's studies,This paper's data,Full sample,Weight (kg),27,.1405084,.044232558,.067524679,.21349213,.053812582,.22720422
+This paper's studies,Taylor-Robinson (2019) data,Full sample,Weight (kg),27,.12325402,.049894631,.040927883,.20558016,.025460547,.22104751
+Taylor-Robinson (2019) studies,This paper's data,Full sample,Weight (kg),11,.10646329,.077798329,-.021903953,.23483053,-.046021435,.25894803
+Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,Full sample,Weight (kg),11,.081680886,.098058656,-.080115899,.24347767,-.11051408,.27387586
+This paper's studies,This paper's data,Full sample,MUAC (cm),7,.12709759,.094657995,-.0290881,.28328329,-.05843208,.31262726
+This paper's studies,Taylor-Robinson (2019) data,Full sample,MUAC (cm),7,.12709759,.094657995,-.0290881,.28328329,-.05843208,.31262726
+Taylor-Robinson (2019) studies,This paper's data,Full sample,MUAC (cm),4,-.033824995,.10918115,-.21397389,.1463239,-.24782005,.18017006
+Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,Full sample,MUAC (cm),4,-.033824995,.10918115,-.21397389,.1463239,-.24782005,.18017006
+This paper's studies,This paper's data,Full sample,Height (cm),22,.064334922,.041868251,-.0047476925,.13341753,-.01772685,.1463967
+This paper's studies,Taylor-Robinson (2019) data,Full sample,Height (cm),22,.062646709,.039846227,-.0030995645,.12839298,-.015451895,.14074531
+Taylor-Robinson (2019) studies,This paper's data,Full sample,Height (cm),8,.013991383,.12357665,-.18991008,.21789286,-.22821885,.25620162
+Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,Full sample,Height (cm),8,-.026222276,.11315589,-.2129295,.16048495,-.24800783,.19556327
+This paper's studies,This paper's data,Full sample,Hb (g/dL),13,.025549164,.026905999,-.018845733,.069944061,-.027186593,.078284919
+This paper's studies,Taylor-Robinson (2019) data,Full sample,Hb (g/dL),13,.023940815,.027941097,-.022161994,.070043623,-.030823736,.078705363
+Taylor-Robinson (2019) studies,This paper's data,Full sample,Hb (g/dL),7,.0044943676,.033490829,-.050765499,.059754238,-.061147656,.070136391
+Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,Full sample,Hb (g/dL),8,-.010207522,.03373035,-.065862603,.045447558,-.076319009,.055903964
+This paper's studies,This paper's data,≥20% prevalence,Weight (kg),21,.1544873,.043527562,.082666822,.22630778,.069173276,.23980132
+This paper's studies,Taylor-Robinson (2019) data,≥20% prevalence,Weight (kg),21,.13125879,.04749402,.052893654,.20962392,.038170505,.22434707
+Taylor-Robinson (2019) studies,This paper's data,≥20% prevalence,Weight (kg),7,.10374269,.053746659,.015060701,.19242467,-.0016007633,.20908614
+Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,≥20% prevalence,Weight (kg),7,.054257531,.048050001,-.025024971,.13354003,-.039920472,.14843553
+This paper's studies,This paper's data,≥20% prevalence,MUAC (cm),6,.19811659,.086214304,.055862986,.34037018,.02913655,.36709663
+This paper's studies,Taylor-Robinson (2019) data,≥20% prevalence,MUAC (cm),6,.19811659,.086214304,.055862986,.34037018,.02913655,.36709663
+Taylor-Robinson (2019) studies,This paper's data,≥20% prevalence,MUAC (cm),3,.075403884,.06287919,-.028346779,.17915455,-.047839329,.1986471
+Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,≥20% prevalence,MUAC (cm),3,.075403884,.06287919,-.028346779,.17915455,-.047839329,.1986471
+This paper's studies,This paper's data,≥20% prevalence,Height (cm),16,.086692184,.038501728,.023164332,.15022004,.011228797,.16215557
+This paper's studies,Taylor-Robinson (2019) data,≥20% prevalence,Height (cm),16,.085688017,.038548473,.022083037,.14929301,.010133009,.16124302
+Taylor-Robinson (2019) studies,This paper's data,≥20% prevalence,Height (cm),4,.067619696,.085402228,-.073293976,.20853338,-.099768668,.23500806
+Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,≥20% prevalence,Height (cm),4,.062401343,.085916042,-.079360127,.20416281,-.1059941,.23079678
+This paper's studies,This paper's data,≥20% prevalence,Hb (g/dL),11,.063642681,.038485643,.00014137049,.12714399,-.011789178,.13907453
+This paper's studies,Taylor-Robinson (2019) data,≥20% prevalence,Hb (g/dL),11,.066400781,.041614916,-.0022638305,.13506539,-.015164454,.14796601
+Taylor-Robinson (2019) studies,This paper's data,≥20% prevalence,Hb (g/dL),5,.063029103,.073449083,-.058161885,.18422009,-.080931097,.2069893
+Taylor-Robinson (2019) studies,Taylor-Robinson (2019) data,≥20% prevalence,Hb (g/dL),5,.0027020217,.079493336,-.12846199,.13386603,-.15310492,.15850896
