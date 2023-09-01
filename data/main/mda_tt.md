@@ -4,15 +4,15 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 - **Number of variables:** 157
 - **ID variable(s):** trial
 - **.dta version used:** 14
-- **Data signature:** 41:157(69111):1824492254:1387176625
+- **Data signature:** 41:157(69111):2665737890:432295657
 - **Last saved by:** User info withheld, see option userinfo in command iesave.
-- **Last saved at:** 13:41:14 6 Jul 2023
+- **Last saved at:** 12:05:38 1 Sep 2023
 
 ## Variable type: String
 
 | Name | Label | Type | Complete obs | Number of levels |
 |---|---|---|---|---|
-| N | "type of randomized units = n'var't + n'var'c" | str12 | 34 | 3 |
+| N | "type of randomized units = n'var't + n'var'c" | str11 | 34 | 2 |
 | country | "" | str16 | 40 | 20 |
 | drug | "Deworming drug diven at each dosage" | str63 | 34 | 10 |
 | name | "Study name" | str41 | 34 | 28 |

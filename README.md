@@ -27,7 +27,7 @@ Script `07_bayesian hierarchical models.R` runs simulations and a random seed is
 
 ## Description of programs/code
 
-All scripts used for data creation and analysis are included in `code`. Scripts 01-03 create or import the raw data in `data/raw`. Scripts 04 and 05 reformat the raw data for use with different functions. Scripts 06-11 analyze the data. See `main.do` for a detailed description of inputs and outputs of each script.
+All scripts used for data creation and analysis are included in `code`. Scripts 01-03 create or import the raw data in `data/raw`. Scripts 04 and 05 reformat the raw data for use with different functions. Scripts 06-13 analyze the data. See `main.do` for a detailed description of inputs and outputs of each script.
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) 
 
@@ -61,7 +61,9 @@ The provided code reproduces all tables and figures in the paper, except for the
 | Table S6          | `code/10_metan.do`             | 400         | output/tables/tableS6.csv        ||
 | Table S7          | | | | This table is created in Excel using values from tables 2 and 3  |
 | Table S8          | `code/08_clean_stan_output.do` |             | output/tables/tableS8.csv        ||
-| Table F           |                                |             |                                  ||
+| Figure S1         | `code/13_compare_to_TMSDG.R`   |             | output/figures/figureS1.png      ||
+| Table F           | `code/12_tableF.do`            |             | output/tables/tableF.csv  ||
 | Table F1          | `code/09_publication_bias.R`   | 162         | output/tables/andrews-kasy-bias-1.csv ||
 | Table F2          | `code/09_publication_bias.R`   | 252         | output/tables/andrews-kasy-bias-2.csv ||
+| Figure F1         | `code/09_publication_bias.R`   | 48          | output/figures/figureF1.png      ||
 | Figure F1         | `code/09_publication_bias.R`   | 48          | output/figures/figureF1.png      ||

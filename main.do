@@ -160,10 +160,19 @@
 	rsource using "${code}/11_roodman_graph.R"
 	
 	*--------------------------------------------------------
+	* 12 - Number of significant trials
+	*--------------------------------------------------------
+	* USES: 	${data}/main/mda_tt_long.csv
+	* CREATES: 	${output_tables}/figureS1.png
+	rsource using "${code}/12_tableF.R"
+	
+	*--------------------------------------------------------
 	* 13 - Comparison to Taylor-Robinson et al (2019)
 	*--------------------------------------------------------
 	* USES: 	${output_tables}/compare_decisions.csv
 	* CREATES: 	${output_figures}/figureS1.png
 	rsource using "${code}/13_compare_to_TMSDG.R"
+	
+	erase "${github}/Rplots.pdf" // seems to be created when running ggsave from rsource
 
 ********************************************************************************

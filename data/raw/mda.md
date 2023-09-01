@@ -4,15 +4,15 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 - **Number of variables:** 100
 - **ID variable(s):** trial
 - **.dta version used:** 14
-- **Data signature:** 34:100(56486):1364685039:2955955362
+- **Data signature:** 34:100(56486):1607896381:2832813945
 - **Last saved by:** User info withheld, see option userinfo in command iesave.
-- **Last saved at:** 13:41:13 6 Jul 2023
+- **Last saved at:** 12:05:37 1 Sep 2023
 
 ## Variable type: String
 
 | Name | Label | Type | Complete obs | Number of levels |
 |---|---|---|---|---|
-| N | "type of randomized units = n'var't + n'var'c" | str12 | 34 | 3 |
+| N | "type of randomized units = n'var't + n'var'c" | str11 | 34 | 2 |
 | country | "" | str16 | 34 | 17 |
 | drug | "Deworming drug diven at each dosage" | str63 | 34 | 10 |
 | name | "Study name" | str41 | 34 | 28 |
@@ -119,7 +119,7 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 | Prevalence | "" | prevlabel | 33 | 3 | 0 | Worm Prevalence >= 50:20 Worm Prevalence < 20:7 20 <= Worm Prevalence < 50:6 |
 | Prevalence2 | "RECODE of Prevalence" | prev2label | 33 | 2 | 0 | Worm Prevalence >= 20:26 Worm Prevalence < 20:7 |
 | theight | "Type of estimate for height" | estimates | 27 | 3 | 0 | diff-in-diff:22 ANCOVA:4 endline comparison:1 |
-| themob | "Type of estimate for hemoglobin" | estimates | 15 | 3 | 0 | diff-in-diff:9 endline comparison:3 ANCOVA:3 |
+| themob | "Type of estimate for hemoglobin" | estimates | 15 | 3 | 0 | diff-in-diff:9 ANCOVA:3 endline comparison:3 |
 | tmuac | "Type of estimate for MUAC" | estimates | 7 | 2 | 0 | diff-in-diff:6 ANCOVA:1 |
 | tweight | "Type of estimate for weight" | estimates | 31 | 2 | 0 | diff-in-diff:26 ANCOVA:5 |
 
