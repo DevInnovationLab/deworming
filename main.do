@@ -127,10 +127,10 @@
 	*--------------------------------------------------------
 	* USES: 	${data}/main/mda_tt_long.csv
 	* CREATES: 	${data}/pub_bias/data_ak_*.csv
-	* 			${output_table}/output/tables/tableF1-A.csv
-	* 			${output_table}/output/tables/tableF2-A.csv
-	* 			${output_table}/pub-bias-AK_mda.csv
-	* 			${output_table}/pub-bias-AK_mda_tt.csv
+	* 			${output_tables}/output/tables/tableF1-A.csv
+	* 			${output_tables}/output/tables/tableF2-A.csv
+	* 			${output_tables}/pub-bias-AK_mda.csv
+	* 			${output_tables}/pub-bias-AK_mda_tt.csv
 	* 			${output_figures}/figureF1.png
 	rsource using "${code}/09_publication_bias.R"	
 
@@ -149,13 +149,21 @@
 	*			${output_tables}/tableS5.csv
 	*			${output_tables}/tableS6.csv
 	*			${data}/main/metaanalysis_data.csv
+	*			${output_tables}/compare_decisions.csv
 	do "${code}/10_metan.do"
 	
 	*--------------------------------------------------------
 	* 11 - Roodman graph
 	*--------------------------------------------------------
 	* USES: 	${data}/raw/metaanalysis_data.csv
-	* CREATES: 	${output_figures}/metaforest*.png
+	* CREATES: 	${output_figures}/metaforest.png
 	rsource using "${code}/11_roodman_graph.R"
+	
+	*--------------------------------------------------------
+	* 13 - Comparison to Taylor-Robinson et al (2019)
+	*--------------------------------------------------------
+	* USES: 	${output_tables}/compare_decisions.csv
+	* CREATES: 	${output_figures}/figureS1.png
+	rsource using "${code}/13_compare_to_TMSDG.R"
 
 ********************************************************************************

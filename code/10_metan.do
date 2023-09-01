@@ -234,6 +234,7 @@
 	
 		
 	* Panel A	
+	* Taylor-Robinson 2015
 	foreach outcome of global outcomes {
 		
 		if 	 ("`outcome'" == "height") 	local effect fixed
@@ -256,6 +257,7 @@
 		local ++i
 	}
 	
+	* Taylor-Robinson 2019
 	foreach condition in "peweight_c2 != ." "peweight_c2 != . & pre2000 == 1" "peweight_c2 != . & pre2000 == 0" {
 		
 		metan peweight_c2 seweight_c2 if `condition', `effect' nograph lcols(trial)
@@ -297,6 +299,7 @@
 		local ++i
 	}
 	
+	* Welch et al studies
 	use "${data}/main/campbell.dta", clear 
 	
 	foreach outcome in weight height {
@@ -543,13 +546,10 @@
 
 	foreach prevalence in "" "& Prevalence2 == 2" {
 		
-		if missing("`prevalence'")  local table all
-		else						local table highprev
-		
 		foreach var of global outcomes {	
 				
 			foreach sample in "(TMSDGsample`var' == 1 | more`var' == 1) & mda == 1" /// our sample
-							  "(TMSDGsample`var' == 1)" { // Taylor-Robinson sample 
+							  "!missing(pe`var'_c2)" { // Taylor-Robinson sample 
 							  
 				foreach estimates in "pe`var'2 se`var'2" /// our estimates
 									 "pe`var'3 se`var'3" { // Taylor-Robinson estimates
@@ -569,10 +569,10 @@
 						replace prevalence 	= "`prevalence'"	in `obs'
 						replace estimates 	= "`estimates'" 	in `obs'
 						replace outcome		= "`var'"			in `obs'
-						replace ll90 		= pe - 1.96 * se	in `obs'
-						replace ul90 		= pe + 1.96 * se	in `obs'
-						replace ll95 		= pe - 1.65 * se	in `obs'
-						replace ul95 		= pe + 1.65 * se	in `obs'
+						replace ll95 		= pe - 1.96 * se	in `obs'
+						replace ul95 		= pe + 1.96 * se	in `obs'
+						replace ll90 		= pe - 1.65 * se	in `obs'
+						replace ul90 		= pe + 1.65 * se	in `obs'
 						replace n 			= r(df) + 1			in `obs'
 						
 						save 	`results' , replace
@@ -587,16 +587,16 @@
 
 	use `results', clear
 
-	replace sample = "This paper's studies" 			if regex(sample, "more")
-	replace sample = "Taylor-Robinson (2019) studies" 	if sample != "This paper's studies"
-	replace prevalence = "Full sample"					if missing(prevalence)
-	replace prevalence = "≥20% prevalence"				if prevalence != "Full sample"
-	replace estimates = "This paper's data"				if regex(estimates, "2")
-	replace estimates = "Taylor-Robinson (2019) data"	if regex(estimates, "3")
-	replace outcome = "Weight (kg)"						if outcome == "weight"
-	replace outcome = "Height (cm)"						if outcome == "height"
-	replace outcome = "MUAC (cm)"						if outcome == "muac"
-	replace outcome = "Hb (g/dL)"						if outcome == "hemob"
+	replace sample = "This paper's studies" 				if regex(sample, "more")
+	replace sample = "Taylor-Robinson (2019) studies" 		if sample != "This paper's studies"
+	replace prevalence = "Full sample"						if missing(prevalence)
+	replace prevalence = "≥20% prevalence"					if prevalence != "Full sample"
+	replace estimates = "This paper's estimates"			if regex(estimates, "2")
+	replace estimates = "Taylor-Robinson (2019) estimates"	if regex(estimates, "3")
+	replace outcome = "Weight (kg)"							if outcome == "weight"
+	replace outcome = "Height (cm)"							if outcome == "height"
+	replace outcome = "MUAC (cm)"							if outcome == "muac"
+	replace outcome = "Hb (g/dL)"							if outcome == "hemob"
 	
 	export delimited using "${output}/tables/compare_decisions.csv", replace
 

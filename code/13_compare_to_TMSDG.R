@@ -2,16 +2,20 @@
 # Created by Luiza Andrade on August 2023
 
 library(tidyverse)
+library(here)
 
 data <-
-  read_csv("output/tables/compare_decisions.csv") %>%
+  read_csv(
+    here(
+      "output/tables/compare_decisions.csv"
+    )
+  ) %>%
   mutate(
     source =
       paste(
-        sample,
         estimates,
-        prevalence,
-        sep = "; "
+        prevalence %>% str_replace_all("≥", "Over "),
+        sep = "\n"
       ),
     outcome =
       factor(
@@ -36,11 +40,38 @@ data <-
       levels = c(90, 95),
       labels = c("90% CI", "95% CI"),
       ordered = TRUE
-    )
+    ),
+    xline_y = case_when(
+      sample == "This paper's studies" ~ .4
+    ),
+    xline_x = case_when(
+      sample == "Taylor-Robinson (2015) studies" ~ NA,
+      outcome == "Weight (kg)" ~ -.1,
+      outcome == "MUAC (cm)" ~ -.2,
+      outcome == "Height (cm)" ~ -.2,
+      outcome == "Hb (g/dL)" ~ -.1
+    ),
+    xline_xend = case_when(
+      sample == "Taylor-Robinson (2015) studies" ~ NA,
+      outcome == "MUAC (cm)" ~ .4,
+      TRUE ~ .2
+    ),
+    source = source %>%
+      factor(
+        levels = c(
+          "This paper's estimates\nOver 20% prevalence",
+          "This paper's estimates\nFull sample",
+          "Taylor-Robinson (2019) estimates\nOver 20% prevalence",
+          "Taylor-Robinson (2019) estimates\nFull sample"
+        ),
+        ordered = TRUE
+      )
   )
 
-linesize <- .2
-fontsize <- 6.7
+
+
+linesize <- .5
+fontsize <- 7.5
 
 data %>%
   ggplot(
@@ -51,9 +82,9 @@ data %>%
   ) +
   geom_vline(
     xintercept = 0,
-    color = "black",
+    color = "gray60",
     linetype = "dotted",
-    size = linesize
+    linewidth = linesize
   ) +
   geom_segment(
     data = . %>% filter(ci == "95% CI"),
@@ -62,7 +93,7 @@ data %>%
       xend = ul,
       color = ci
     ),
-    linewidth = 1,
+    linewidth = 2,
     lineend = "round"
   ) +
   geom_segment(
@@ -72,15 +103,15 @@ data %>%
       xend = ul,
       color = ci
     ),
-    linewidth = 1,
+    linewidth = 2,
     lineend = "round"
   ) +
   geom_segment(
     aes(
-      x = -.4,
-      xend = .4,
-      y = 8.57,
-      yend = 8.57
+      x = xline_x,
+      xend = xline_xend,
+      y = xline_y,
+      yend = xline_y
     ),
     color = "black",
     size = linesize
@@ -90,52 +121,64 @@ data %>%
       x = pe,
       label = round(pe, 3)
     ),
-    vjust = -.8,
-    size = 2
-  ) +
-  geom_segment(
-    aes(
-      x = -.4,
-      xend = .4,
-      y = .4,
-      yend = .4
-    ),
-    color = "black",
-    size = linesize
+    vjust = -1.2,
+    size = 2.7
   ) +
   geom_point(
     aes(
       x = pe
     ),
-    size = 1,
+    size = 3,
     shape = 15
   ) +
-  facet_wrap(
-    ~ outcome,
-    ncol = 4
+  facet_grid(
+    sample ~ outcome,
+    scale = "free_x",
+    switch = "y"
   ) +
   labs(
-    color = NULL
+    color = NULL,
+    y = NULL
   ) +
- scale_color_manual(values = c("gray50", "black")) +
   theme_void() +
+  scale_color_manual(values = c("black", "gray50")) +
   theme(
     text = element_text(size = fontsize),
-    axis.text = element_text(),
-    axis.text.x = element_text(),
-    axis.ticks.x = element_line(color = "black", size = linesize),
-    axis.ticks.length.x = unit(.1, "cm"),
-    strip.text.x = element_text(size = fontsize, margin = margin(.1, .1, .1, .1, "cm")),
+    axis.text.x = element_text(vjust = .05),
     axis.text.y = element_text(hjust = 0),
-    strip.background = element_rect(color = "white"),
+    axis.ticks.x = element_line(
+      color = "black",
+      size = linesize
+    ),
+    axis.ticks.length.x = unit(.05, "cm"),
     legend.position = "bottom",
-    plot.margin = margin(.1, .1, .1, .1, "cm")
+    panel.background = element_blank(),
+    strip.background = element_rect(
+      fill = "gray",
+      color = "gray"
+    ),
+    strip.placement = "outside",
+    strip.text = element_text(
+      size = fontsize,
+      margin = margin(.1, .1, .1, .1, "cm"),
+      face = "bold"
+    ),
+    strip.text.y = element_text(
+      angle = 90,
+      size = fontsize - .5,
+      margin = margin(.1, .2, .1, .1, "cm")
+    ),
+    plot.margin = margin(.1, .1, .1, .1, "cm"),
+    legend.text = element_text(size = fontsize)
   )
 
   ggsave(
-    "output/figures/figureS1.png",
-    width = 6.5,
-    height = 2.5,
+    here(
+      "output/figures/figureS1.png"
+    ),
+    width = 7.5,
+    height = 4,
     units = c("in"),
     bg = "white"
   )
+

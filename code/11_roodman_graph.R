@@ -5,11 +5,11 @@
 #    Then open a fresh copy of the program and click: file-->reopen with encoding
 #    Choose UTF-8. Then re-run the code.
 
-#setwd("C:\Files\projects\worms\trunk\notes\messages\2019.11.1 worms latest draft\data files")
 library(metafor)
 library(assertthat)
 library(gtools)
 library(tidyverse)
+library(here)
 "%&%"<-function(x,y)paste(x,y,sep="")  #define a function for easy string pasting
 
 #define a function to help insert underlined text in plots
@@ -24,96 +24,166 @@ underlined <- function(x, y, label, ...){
 #############################
 # Read in data for the plot
 #############################
-datafile = "data/main/metaanalysis_data.csv"
-dta =
-  datafile %>%
+data <-
+  here("data/main/metaanalysis_data.csv") %>%
   read.csv(stringsAsFactors=FALSE) %>%
   mutate(
     across(
       contains("_"),
       ~ round(., 3)
     )
+  ) %>%
+  pivot_longer(
+    cols = -study,
+    names_to = c('outcome', '.value'),
+    names_pattern = '(.*)_(..)'
+  ) %>%
+  mutate(
+    study =
+      factor(
+        study,
+        levels = c(
+          "This paper (>20% Prev.)",
+          "This paper (full sample)",
+          "Taylor-Robinson et al (2019)",
+          "Welch et al (2016)",
+          "Taylor-Robinson et al (2015)"
+        ),
+        ordered = TRUE
+      ),
+    outcome =
+      factor(
+        outcome,
+        levels = c("weight", "height"),
+        labels = c("Weight (kg)", "Height (cm)"),
+        ordered = TRUE
+      ),
+    ul90 = pe - 1.65 * se,
+    ll90 = pe + 1.65 * se,
+    ul95 = pe - 1.96 * se,
+    ll95 = pe + 1.96 * se
+  ) %>%
+  pivot_longer(
+    cols = c(starts_with("ul"), starts_with("ll")),
+    names_to = c('.value', 'ci'),
+    names_pattern = '(..)(.*)'
+  ) %>%
+  mutate(
+    ci = factor(
+      ci,
+      levels = c(90, 95),
+      labels = c("90% CI", "95% CI"),
+      ordered = TRUE
+    )
   )
 
 
-######################
-# Set up forest plot
-######################
-#o <- "weight"
-o <- "height"
+linesize <- .5
+fontsize <- 12
 
-for(o in c("weight", "height")){
-  #set min and max for plot
-  if (o=="weight"){
-    pe <- dta$weight_pe
-    se <- dta$weight_se
-  } else if (o=="height"){
-    pe <- dta$height_pe
-    se <- dta$height_se
-  }
+data %>%
+  ggplot(
+    aes(
+      y = study,
+      yend = study
+    )
+  ) +
+  geom_vline(
+    xintercept = 0,
+    color = "gray60",
+    linetype = "dotted",
+    linewidth = linesize
+  ) +
+  geom_segment(
+    data = . %>% filter(ci == "95% CI"),
+    aes(
+      x = ll,
+      xend = ul,
+      color = ci
+    ),
+    linewidth = 2,
+    lineend = "round"
+  ) +
+  geom_segment(
+    data = . %>% filter(ci == "90% CI"),
+    aes(
+      x = ll,
+      xend = ul,
+      color = ci
+    ),
+    linewidth = 2,
+    lineend = "round"
+  ) +
+  geom_segment(
+    aes(
+      x = -.1,
+      xend = .2,
+      y = .4,
+      yend = .4
+    ),
+    color = "black",
+    size = linesize
+  ) +
+  geom_text(
+    aes(
+      x = pe,
+      label = round(pe, 3)
+    ),
+    vjust = -1,
+    size = 4
+  ) +
+  geom_point(
+    aes(
+      x = pe
+    ),
+    size = 3,
+    shape = 15
+  ) +
+  facet_wrap(
+    ~ outcome,
+    scale = "free_x"
+  ) +
+  labs(
+    color = NULL,
+    y = NULL
+  ) +
+  theme_void() +
+  scale_color_manual(values = c("black", "gray50")) +
+  theme(
+    text = element_text(size = fontsize),
+    axis.text.x = element_text(vjust = .05),
+    axis.text.y = element_text(hjust = 0),
+    axis.ticks.x = element_line(
+      color = "black",
+      size = linesize
+    ),
+    axis.ticks.length.x = unit(.05, "cm"),
+    legend.position = "bottom",
+    panel.background = element_blank(),
+    strip.background = element_rect(
+      fill = "gray",
+      color = "gray"
+    ),
+    strip.placement = "outside",
+    strip.text = element_text(
+      size = fontsize,
+      margin = margin(.1, .1, .1, .1, "cm"),
+      face = "bold"
+    ),
+    strip.text.y = element_text(
+      angle = 90,
+      size = fontsize - .5,
+      margin = margin(.1, .2, .1, .1, "cm")
+    ),
+    plot.margin = margin(.1, .1, .1, .1, "cm"),
+    legend.text = element_text(size = fontsize)
+  )
 
-  lo       = min(pe - 1.96*se)*1.1
-  hi       = max(pe + 1.96*se)*1.1
-  len = hi-lo
+ggsave(
+  here("output/figures/metaforest.png"),
+  width = 7.5,
+  height = 3,
+  units = c("in"),
+  bg = "white"
+)
 
-  #set up output file
-  if (o=="weight"){
-    thiswidth <- 600
-  } else if (o=="height"){
-    thiswidth <- 300
-  }
-  png(filename="output/figures/metaforest"%&% o %&% ".png", res=95, width=thiswidth, height=400,)
-  par(mar=c(4,6,0,2))
-
-  #do the forest plot
-  if (o=="weight"){
-    thisxlab <- "Effect of Deworming in kg"
-  } else if (o=="height"){
-    thisxlab <- "Effect of Deworming in cm"
-  }
-
-  leftedge  <- 1
-  rightedge <- 0
-  res1 <- rma(yi=pe, sei=se, method="DL", slab=dta$study)
-  if (o=="height"){
-    res1 <- rma(yi=pe, sei=se, method="DL", slab=c(""," "," "," "," "))
-    leftedge <- 0
-  }
-
-  if (o=="weight"){
-    forest(res1, addfit=FALSE, refline=0, xlim=c(lo-len*leftedge, hi+len*rightedge), alim=c(lo,hi),
-           xlab=thisxlab, lty="solid", bg="red", psize=0.6, level=5,
-           annotate=FALSE)
-  } else if (o=="height"){
-    forest(res1, addfit=FALSE, refline=0, xlim=c(lo-len*leftedge, hi+len*rightedge), alim=c(lo,hi),
-           xlab=thisxlab, lty="solid", bg="red", psize=0.6, level=5,
-           annotate=FALSE, slab=c(""," "," "," "," "))
-  }
-
-  #add 95% and 90% error bars
-  segments(pe-1.96*se, length(dta$study):1, pe+1.96*se, length(dta$study):1, col="grey50",lty=1, lwd=8)
-  segments(pe-1.65*se, length(dta$study):1, pe+1.65*se, length(dta$study):1, col="grey5",lty=1, lwd=8)
-
-  #add bigger point estimate marker
-  points(pe, length(dta$study):1, pch=15, cex=2)
-
-  #add effect size label
-  text(pe,length(dta$study):1,pe,pos=3)
-
-  #add column headers and legend
-  if (o=="weight") {
-    text( lo-len*leftedge        , length(dta$study)+1.5, "Study"               , pos=4)
-  }
-
-  dev.off()
-
-  #make a legend
-  png(filename="output/figures/metaforest_legend.png", res=95, width=1000, height=40)
-  par(mar=c(0,0,0,0))
-  plot(1,xlim=c(0,1800),ylim=c(0,100),type="n",axes=F)
-  rect(650, 15, 725, 85,col="grey5",border=NA)
-  text(800, 50, "95% CI", cex=1)
-  rect(1000, 15, 1075, 85,col="grey50",border=NA)
-  text(1150, 50, "90% CI",cex=1)
-  dev.off()
-}

@@ -1645,7 +1645,7 @@ replace flag_sd=0 in 30
 
 
 **## Le Houng 2007b ============================================================
-replace trial="Le Huong 2007b" in 31 /*Individual RCT: MEB vs placebo*/
+replace trial="Le Huong 2007b" in 31 /*Individual RCT: Fe + MEB vs Fe*/
 replace name="Le Huong et al. (2007)" in 31
 replace N="individuals" in 31
 replace country="Vietnam" in 31
