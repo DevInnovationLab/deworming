@@ -599,5 +599,64 @@
 	replace outcome = "Hb (g/dL)"							if outcome == "hemob"
 	
 	export delimited using "${output}/tables/compare_decisions.csv", replace
+	
+********************************************************************************
+**# Section D: Robustness of random effects estimates to dropping individual 
+*		study estimates and pairs of estimates (settings with >20% prevalence)
+********************************************************************************
+
+use "${data}/main/mda_tt.dta", clear
+keep if mda == 1 & Prevalence2 == 2
+
+tempfile fulldata
+save 	`fulldata', replace
+
+foreach outcome of global outcomes {
+ 
+	use `fulldata', clear
+	
+	* Keep only studies including this outcome
+	keep if (TMSDGsample`outcome'==1 | more`outcome' == 1)	
+	
+	* Number of studies
+	gen trialn = _n
+	local tmax = _N
+	
+	forvalues i = 1/`tmax'{
+		forvalues j = `i'/`tmax'{
+
+				metan pe`outcome'2 se`outcome'2 if !inlist(trialn, `i', `j'), random lcols(trial) nograph
+				
+				matrix row = [`i',  `j',  r(p_z)]
+				
+				if (`i' == 1) & (`j' == 1) 	matrix drop = row
+				else						matrix drop = [drop \ row]
+		}
+	}
+	
+	clear
+	svmat drop
+	rename (drop1 drop2 drop3) (i j p)
+	gen outcome = "`outcome'"
+	tempfile `outcome'
+	save ``outcome'', replace
+
+	mat drop drop
+}
+
+use `weight', clear
+append using `height'
+append using `muac'
+append using `hemob'
+	
+gen 	drop = (i != j)
+replace drop = drop + 1
+
+gen significant = p < 0.05
+
+collapse (count) n = i (min) min = p (max) max = p (sum) significant, by(outcome drop)
+
+export delimited using "${output_tables}/sectionD.csv", replace
+
 
 ********************************************************************************
