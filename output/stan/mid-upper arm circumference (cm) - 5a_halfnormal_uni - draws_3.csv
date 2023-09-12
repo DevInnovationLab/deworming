@@ -5029,7 +5029,7 @@ lp__,accept_stat__,stepsize__,treedepth__,n_leapfrog__,divergent__,energy__,tau,
 -16.631,0.915067,0.295091,3,15,0,18.6684,0.175266,0.0459438,0.114472,0.106645,0.245574,0.03759,0.313712,0.172954,0.0585755,0.139842
 -18.0683,0.970507,0.295091,3,7,0,19.6916,0.155417,0.0280517,0.121573,0.159491,0.139168,0.0196571,0.375936,0.0406761,0.0748327,0.124005
 # 
-#  Elapsed Time: 0.186 seconds (Warm-up)
-#                0.324 seconds (Sampling)
-#                0.51 seconds (Total)
+#  Elapsed Time: 0.177 seconds (Warm-up)
+#                0.329 seconds (Sampling)
+#                0.506 seconds (Total)
 # 

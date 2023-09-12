@@ -8,9 +8,9 @@ The code in this replication package recreates the main data set and results in 
 
 The raw data used in the paper can be found in `data/raw`. The two main raw datasets are `mda.dta`, containing data from MDA trials and created by script 01, and `tt.dta`, contaning data from test-and-treat trials and created by script 02. The data from the Campbell Systematic Reviews was provided by the authors of that study. 
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) 
+[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](http://unlicense.org/) 
 
-The data is licensed under a Creative Commons Attribution 4.0 license. See [LICENSE.txt](LICENSE.txt) for details.
+The data is licensed under an Unlicense license. See [LICENSE.txt](LICENSE.txt) for details.
 
 ## Computational requirements
 
@@ -18,12 +18,7 @@ The code was last run on a **10-core Intel-based laptop with Windows 10 and 16GB
 
 ### Software Requirements
 
-- **Stata** code was last run with version 17. The following community-contributed packages are installed in lines (21-35 of `main.do`):
-  - `estout` (version 3.31  26apr2022)
-  - `ietoolkit` (version 7.2 04APR2023)
-  - `metan` (version 4.06  12oct2022)
-  - `metareg` (v2.6.1 4Nov2008)
-  - `rsource` (Date: 27 February 2014)
+- **Stata** code was last run with version 18. The exact versions of all community-contributed packages last used are included in `code/ado`.
 - **R** code was last run with version 4.2.3. The exact versions of all packages last used are listed in `renv.lock`. To install these versions, launch the R project `deworming.RProj` and run `renv::restore()`.
 
 ### Controlled Randomness
@@ -32,11 +27,11 @@ Script `07_bayesian hierarchical models.R` runs simulations and a random seed is
 
 ## Description of programs/code
 
-All scripts used for data creation and analysis are included in `code`. Scripts 01-03 create or import the raw data in `data/raw`. Scripts 04 and 05 reformat the raw data for use with different functions. Scripts 06-11 analyze the data. See `main.do` for a detailed description of inputs and outputs of each script.
+All scripts used for data creation and analysis are included in `code`. Scripts 01-03 create or import the raw data in `data/raw`. Scripts 04 and 05 reformat the raw data for use with different functions. Scripts 06-13 analyze the data. See `main.do` for a detailed description of inputs and outputs of each script.
 
-[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](http://unlicense.org/) 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) 
 
-The code is licensed under an Unlicense license. See [LICENSE.txt](LICENSE.txt) for details.
+The code is licensed under a Creative Commons Attribution 4.0 license. See [LICENSE.txt](LICENSE.txt) for details.
 
 ## Instructions to Replicators
 
@@ -53,7 +48,7 @@ The provided code reproduces all tables and figures in the paper, except for the
 |-------------------|--------------------------------|-------------|----------------------------------|---------------------------------|
 | Table 1           | `code/10_metan.do`             | 2           | output/tables/table1.csv   ||
 | Table 2           | `code/10_metan.do`             | 47          | output/tables/table2.csv         ||
-| Table 3           | `code/10_metan.do`             | 125         | output/tables/table3.csv         | Columns 7-12? |
+| Table 3           | `code/10_metan.do`             | 125         | output/tables/table3.csv         | Columns 7-12 use estimates from GiveWell (2017), Kristjansson et al. (2007), Kristjansson et al. (2015a), Kristjansson et al. (2016), and Neumann (2003).  |
 | Figure 1          | `code/06_forest_plots.R`       |             | output/figures/figure1.png       ||
 | Figure 2          | `code/06_forest_plots.R`       |             | output/figures/figure2.png       ||
 | Figure 3          | `code/06_forest_plots.R`       |             | output/figures/figure3.png       ||
@@ -64,8 +59,11 @@ The provided code reproduces all tables and figures in the paper, except for the
 | Table S4          | `code/10_metan.do`             | 320         | output/tables/tableS4.csv        ||
 | Table S5          | `code/10_metan.do`             | 365         | output/tables/tableS5.csv        ||
 | Table S6          | `code/10_metan.do`             | 400         | output/tables/tableS6.csv        ||
-| Table S7          | | | | This table is created in Excel using values from tables 2 and 3 doing additional calculations.  |
+| Table S7          | | | | This table is created in Excel using values from tables 2 and 3  |
 | Table S8          | `code/08_clean_stan_output.do` |             | output/tables/tableS8.csv        ||
-| Table F1          | `code/09_publication_bias.R`   | 75          | output/tables/tableF1.png        | Panels B and C were created by inputing the data in `data/pub_bias` into [this app](https://maxkasy.github.io/home/metastudy/) |
-| Table F2          | `code/09_publication_bias.R`   | 75          | output/tables/tableF1.png        | Panels B and C were created by inputing the data in `data/pub_bias` into [this app](https://maxkasy.github.io/home/metastudy/) |
+| Figure S1         | `code/13_compare_to_TMSDG.R`   |             | output/figures/figureS1.png      ||
+| Table F           | `code/12_tableF.do`            |             | output/tables/tableF.csv  ||
+| Table F1          | `code/09_publication_bias.R`   | 162         | output/tables/andrews-kasy-bias-1.csv ||
+| Table F2          | `code/09_publication_bias.R`   | 252         | output/tables/andrews-kasy-bias-2.csv ||
+| Figure F1         | `code/09_publication_bias.R`   | 48          | output/figures/figureF1.png      ||
 | Figure F1         | `code/09_publication_bias.R`   | 48          | output/figures/figureF1.png      ||

@@ -9,27 +9,58 @@
 	        ((moreweight | moremuac | moreheight | morehemob) & mda == 1) | ///
 		    (infected == 1 & trial != "Stephenson 1993 1d (I)")
 
-	local vars peweight seweight peheight seheight pemuac semuac pehemob sehemob
-
-	foreach var of local vars {
-		replace `var' = `var'_c if !missing(`var'_c)
-		replace `var' = `var'2 	if mda == 0
+	foreach outcome of global outcomes {
+		foreach stat in pe se {
+			local var `stat'`outcome'
+			
+			replace `var' = `var'2 	if !missing(`var'2)
+			replace `var' = `var'_c if  missing(`var')
+			
+		}
+		
+		gen 	n`outcome' = n`outcome't2   + n`outcome'c2   if !missing(n`outcome't2)
+		replace n`outcome' = n`outcome't_c  + n`outcome'c_c  if  missing(n`outcome')
 	}
 
-	keep 	mda trial `vars' prevalence_exact
+	keep 	mda trial *weight *height *muac *hemob prevalence_exact N
+	keep 	mda trial se* pe* n* prevalence_exact N
+	
 	reshape long @weight @height @muac @hemob, i(trial) j(stat) string
+	
+	preserve
+		keep if stat == "n"
+		gen order = 1
+		
+		keep ${outcomes} trial order N
+		tostring ${outcomes}, replace
+		
+		foreach var of global outcomes {
+			rename 	`var' 	 n`var'
+			replace n`var' = "" if n`var' == "."
+			replace n`var' = n`var' + "†" if (N == "clusters") & !missing(n`var')
+		}
+				
+		tempfile n
+		save `n', replace
+
+	restore
+	
+	drop if stat == "n"
 	encode stat, gen(order)
-
-	replace trial = subinstr(trial, " (I)", "", .)
-
+	
 	replace mda = 1 - mda
+	
+	merge 1:1 trial order using `n', assert(1 3) nogen
+
 	sort 	mda trial order
+	replace trial = subinstr(trial, " (I)", "", .)
 
 	replace prevalence_exact = . 	if order == 2
 	replace trial = "" 				if order == 2
-	drop mda order stat
+	drop mda order stat N
 
 	export delimited using "${output_tables}/table1.csv", replace
+	export excel 	 using "${output}/Formatted tables.xlsx", sheet("t1_raw") sheetreplace
 }
 ********************************************************************************
 **# Table 2: Random-effects and fixed-effect estimates
@@ -72,6 +103,12 @@
 	}
 
 	estout matrix(R) using "${output_tables}/table2.csv", replace delimiter(",")
+
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("t2_raw") sheetreplace cell(B3)
+	restore
 }
 
 * Data for figure 5
@@ -148,6 +185,10 @@
 		estout matrix(R) using "${output_tables}/table3.csv", delimiter(",") `save'
 		local save append
 	}
+	
+	import delimited "${output_tables}/table3.csv", clear
+	destring _all, force replace
+	export excel 	 using "${output}/Formatted tables.xlsx", sheet("t3_raw") sheetreplace
 }
 ********************************************************************************
 **# Table S2: Statistical power to detect effects that render deworming MDA cost-effective relative to alternative policies
@@ -193,6 +234,7 @@
 	
 		
 	* Panel A	
+	* Taylor-Robinson 2015
 	foreach outcome of global outcomes {
 		
 		if 	 ("`outcome'" == "height") 	local effect fixed
@@ -215,6 +257,7 @@
 		local ++i
 	}
 	
+	* Taylor-Robinson 2019
 	foreach condition in "peweight_c2 != ." "peweight_c2 != . & pre2000 == 1" "peweight_c2 != . & pre2000 == 0" {
 		
 		metan peweight_c2 seweight_c2 if `condition', `effect' nograph lcols(trial)
@@ -256,6 +299,7 @@
 		local ++i
 	}
 	
+	* Welch et al studies
 	use "${data}/main/campbell.dta", clear 
 	
 	foreach outcome in weight height {
@@ -274,8 +318,14 @@
 		local ++i
 	}
 		
-	estout matrix(A) using "${output_tables}/tableS2.csv", replace delimiter(",")
-	estout matrix(B) using "${output_tables}/tableS2.csv", append  delimiter(",")
+	mat full = A \ B
+	estout matrix(full) using "${output_tables}/tableS2.csv", replace delimiter(",")
+	
+	preserve
+		clear 
+		svmat full
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts2_raw") sheetreplace cell(B3)
+	restore
 		
 	* For Campbell power calculations, refer to code under Table S3.
 }
@@ -309,6 +359,12 @@
 	}
 
 	estout matrix(R) using "${output_tables}/tableS3.csv", replace delimiter(",")
+	
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts3_raw") sheetreplace cell(B3)
+	restore
 
 }
 ********************************************************************************
@@ -354,6 +410,13 @@
 	}
 
 	estout matrix(R) using "${output_tables}/tableS4.csv", replace delimiter(",")
+
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts4_raw") sheetreplace cell(B3)
+	restore
+
 }
 
 ********************************************************************************
@@ -388,7 +451,14 @@
 		local col = `col'+1
 	}	
 
+	matrix R = R'
 	estout matrix(R) using "${output_tables}/tableS5.csv", replace delimiter(",")
+	
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts5_raw") sheetreplace cell(B3)
+	restore
 
 }
 ********************************************************************************
@@ -425,7 +495,168 @@
 		local ++j
 		local ++j
 	}	
-	estout matrix(R) using "${output_tables}/tableS6.csv", replace delimiter(",")
 
+	estout matrix(R) using "${output_tables}/tableS6.csv", replace delimiter(",")
+	
+	preserve
+		clear 
+		svmat R
+		export excel using "${output}/Formatted tables.xlsx", sheet("ts6_raw") sheetreplace cell(B3)
+	restore
 }
+
+********************************************************************************
+**# Figure S1: Random effects estimates under different combinations of studies 
+*			   sample and data extraction procedures
+********************************************************************************
+
+* Create a blank dataset to fill with results --------------------------------
+
+	clear
+	
+	gen sample = ""
+	gen estimates = ""
+	gen prevalence = ""
+	gen outcome = ""
+	gen n = .
+	gen pe = .
+	gen se = .
+	gen ll95 = .
+	gen ul95 = .
+	gen ll90 = .
+	gen ul90 = .
+		
+	tempfile results
+	save 	`results' , replace
+	
+* Prepare data to estimate with different samples and estimates --------------
+
+	use "${data}/main/mda_tt.dta", clear
+	
+	* Create a variables that uses Taylor-Robinson estimates whenever they are available
+	* and this paper's estimates when they are not
+	foreach var of global outcomes {
+		foreach estimate in pe se {
+			gen 	`estimate'`var'3 = `estimate'`var'_c2
+			replace `estimate'`var'3 = `estimate'`var'2 	if missing(`estimate'`var'3)
+		}
+	}
+	
+* Estimate random effects model with different samples and estimates ---------
+
+	foreach prevalence in "" "& Prevalence2 == 2" {
+		
+		foreach var of global outcomes {	
+				
+			foreach sample in "(TMSDGsample`var' == 1 | more`var' == 1) & mda == 1" /// our sample
+							  "!missing(pe`var'_c2)" { // Taylor-Robinson sample 
+							  
+				foreach estimates in "pe`var'2 se`var'2" /// our estimates
+									 "pe`var'3 se`var'3" { // Taylor-Robinson estimates
+							
+					* Our estimates on our studies
+					metan `estimates' if `sample' `prevalence', random nograph
+					
+					preserve
+						use `results', clear 
+						
+						local obs = _N + 1
+						set obs `obs' 
+						
+						replace pe 			= r(ES)   			in `obs'
+						replace se 			= r(seES) 			in `obs'
+						replace sample 		= "`sample'" 		in `obs'
+						replace prevalence 	= "`prevalence'"	in `obs'
+						replace estimates 	= "`estimates'" 	in `obs'
+						replace outcome		= "`var'"			in `obs'
+						replace ll95 		= pe - 1.96 * se	in `obs'
+						replace ul95 		= pe + 1.96 * se	in `obs'
+						replace ll90 		= pe - 1.65 * se	in `obs'
+						replace ul90 		= pe + 1.65 * se	in `obs'
+						replace n 			= r(df) + 1			in `obs'
+						
+						save 	`results' , replace
+					restore
+					
+				}
+			}
+		}
+	}
+
+* Clean and export results ---------------------------------------------------
+
+	use `results', clear
+
+	replace sample = "This paper's studies" 				if regex(sample, "more")
+	replace sample = "Taylor-Robinson (2019) studies" 		if sample != "This paper's studies"
+	replace prevalence = "Full sample"						if missing(prevalence)
+	replace prevalence = "≥20% prevalence"					if prevalence != "Full sample"
+	replace estimates = "This paper's estimates"			if regex(estimates, "2")
+	replace estimates = "Taylor-Robinson (2019) estimates"	if regex(estimates, "3")
+	replace outcome = "Weight (kg)"							if outcome == "weight"
+	replace outcome = "Height (cm)"							if outcome == "height"
+	replace outcome = "MUAC (cm)"							if outcome == "muac"
+	replace outcome = "Hb (g/dL)"							if outcome == "hemob"
+	
+	export delimited using "${output}/tables/compare_decisions.csv", replace
+	
+********************************************************************************
+**# Section D: Robustness of random effects estimates to dropping individual 
+*		study estimates and pairs of estimates (settings with >20% prevalence)
+********************************************************************************
+
+use "${data}/main/mda_tt.dta", clear
+keep if mda == 1 & Prevalence2 == 2
+
+tempfile fulldata
+save 	`fulldata', replace
+
+foreach outcome of global outcomes {
+ 
+	use `fulldata', clear
+	
+	* Keep only studies including this outcome
+	keep if (TMSDGsample`outcome'==1 | more`outcome' == 1)	
+	
+	* Number of studies
+	gen trialn = _n
+	local tmax = _N
+	
+	forvalues i = 1/`tmax'{
+		forvalues j = `i'/`tmax'{
+
+				metan pe`outcome'2 se`outcome'2 if !inlist(trialn, `i', `j'), random lcols(trial) nograph
+				
+				matrix row = [`i',  `j',  r(p_z)]
+				
+				if (`i' == 1) & (`j' == 1) 	matrix drop = row
+				else						matrix drop = [drop \ row]
+		}
+	}
+	
+	clear
+	svmat drop
+	rename (drop1 drop2 drop3) (i j p)
+	gen outcome = "`outcome'"
+	tempfile `outcome'
+	save ``outcome'', replace
+
+	mat drop drop
+}
+
+use `weight', clear
+append using `height'
+append using `muac'
+append using `hemob'
+	
+gen 	drop = (i != j)
+replace drop = drop + 1
+
+gen significant = p < 0.05
+
+collapse (count) n = i (min) min = p (max) max = p (sum) significant, by(outcome drop)
+
+export delimited using "${output_tables}/sectionD.csv", replace
+
+
 ********************************************************************************

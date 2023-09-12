@@ -134,9 +134,9 @@ study,outcome,followup_length,prevalence,country,mean_diff,se_mean_diff,clustere
 "Le Huong 2007a","Haemoglobin (g/dL)",6,.73,"Vietnam",-.109589,.1860375,0,161,"mda_infected",1
 "Le Huong 2007a","Haemoglobin (g/dL)",6,.73,"Vietnam",-.08,.1358073,0,161,"mda",1
 "Le Huong 2007a","Haemoglobin (g/dL)",6,.73,"Vietnam",-.0157502,.0267373,0,161,"mda_pw",1
-"Le Huong 2007b","Haemoglobin (g/dL)",6,.73,"Vietnam",.0410959,.1766757,0,165,"mda_infected",1
-"Le Huong 2007b","Haemoglobin (g/dL)",6,.73,"Vietnam",.03,.1289733,0,165,"mda",1
-"Le Huong 2007b","Haemoglobin (g/dL)",6,.73,"Vietnam",.0059063,.0253919,0,165,"mda_pw",1
+"Le Huong 2007b","Haemoglobin (g/dL)",6,.73,"Vietnam",-.039726,.1766751,0,165,"mda_infected",1
+"Le Huong 2007b","Haemoglobin (g/dL)",6,.73,"Vietnam",-.029,.1289729,0,165,"mda",1
+"Le Huong 2007b","Haemoglobin (g/dL)",6,.73,"Vietnam",-.0057094,.0253918,0,165,"mda_pw",1
 "Liu 2017","height (cm)",12,.31,"China",.2580645,1.135484,1,112,"mda_infected",1
 "Liu 2017","Haemoglobin (g/dL)",12,.31,"China",-.1387097,.3477199,1,112,"mda_infected",1
 "Liu 2017","weight (kg)",12,.31,"China",.0967742,.4112808,1,112,"mda_infected",1

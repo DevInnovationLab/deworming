@@ -25,7 +25,8 @@ estimates <-
       yi = data$mean_diff,
       sei = data$se_mean_diff,
       method = "DL",
-      slab = data$study)
+      slab = data$study
+    )
   }
 
 pval <-

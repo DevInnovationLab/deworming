@@ -14,9 +14,10 @@
 	* ---------------------
 	global code               "${github}/code"
 	global data               "${github}/data"
-	global output_figures     "${github}/output/figures"
-	global output_tables      "${github}/output/tables"
-	global output_stan        "${github}/output/stan"
+	global output			  "${github}/output"
+	global output_figures     "${output}/figures"
+	global output_tables      "${output}/tables"
+	global output_stan        "${output}/stan"
    
     * Find community-contributed commands in GitHub
 	* ----------------------------------------------
@@ -28,15 +29,10 @@
 		adopath ++  PLUS
 		adopath ++  BASE
 	cap adopath - OLDPLACE
-	
-	foreach package in estout ietoolkit metan rsource metareg {
-		cap which `package'
-		if _rc ssc install `package'
-	}
    
 	* rsource settings
 	* ---------------------
-	cd "${github}"
+	cd "${github}" // this is necessary for rsource
    
 	global Rterm_options `"--vanilla"'
 	global Rterm_path `"C:\Program Files\R\R-4.2.3\bin\R.exe"' // <---------------------- Replace with the location of Rterm.exe or R.exe in your computer --------------------
@@ -131,10 +127,10 @@
 	*--------------------------------------------------------
 	* USES: 	${data}/main/mda_tt_long.csv
 	* CREATES: 	${data}/pub_bias/data_ak_*.csv
-	* 			${output_table}/output/tables/tableF1-A.csv
-	* 			${output_table}/output/tables/tableF2-A.csv
-	* 			${output_table}/pub-bias-AK_mda.csv
-	* 			${output_table}/pub-bias-AK_mda_tt.csv
+	* 			${output_tables}/output/tables/tableF1-A.csv
+	* 			${output_tables}/output/tables/tableF2-A.csv
+	* 			${output_tables}/pub-bias-AK_mda.csv
+	* 			${output_tables}/pub-bias-AK_mda_tt.csv
 	* 			${output_figures}/figureF1.png
 	rsource using "${code}/09_publication_bias.R"	
 
@@ -153,13 +149,30 @@
 	*			${output_tables}/tableS5.csv
 	*			${output_tables}/tableS6.csv
 	*			${data}/main/metaanalysis_data.csv
+	*			${output_tables}/compare_decisions.csv
 	do "${code}/10_metan.do"
 	
 	*--------------------------------------------------------
 	* 11 - Roodman graph
 	*--------------------------------------------------------
 	* USES: 	${data}/raw/metaanalysis_data.csv
-	* CREATES: 	${output_figures}/metaforest*.png
+	* CREATES: 	${output_figures}/metaforest.png
 	rsource using "${code}/11_roodman_graph.R"
+	
+	*--------------------------------------------------------
+	* 12 - Number of significant trials
+	*--------------------------------------------------------
+	* USES: 	${data}/main/mda_tt_long.csv
+	* CREATES: 	${output_tables}/figureS1.png
+	rsource using "${code}/12_tableF.R"
+	
+	*--------------------------------------------------------
+	* 13 - Comparison to Taylor-Robinson et al (2019)
+	*--------------------------------------------------------
+	* USES: 	${output_tables}/compare_decisions.csv
+	* CREATES: 	${output_figures}/figureS1.png
+	rsource using "${code}/13_compare_to_TMSDG.R"
+	
+	erase "${github}/Rplots.pdf" // seems to be created when running ggsave from rsource
 
 ********************************************************************************

@@ -137,5 +137,6 @@ gsort -parameter model_desc stat
 drop parameter stat
 
 export delimited using "${output_tables}/tableS8.csv",  replace
+export excel 	 using "${output}/Formatted tables.xlsx", sheet("ts8_raw") sheetreplace
 
 ********************************************************************************

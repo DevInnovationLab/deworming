@@ -1497,7 +1497,7 @@ replace flag_sd=0 in 25
 **## Willett 1979 ==============================================================
 replace trial="Willett 1979" in 26 /*Individual RCT*/
 replace name="Willett, Kilama adn Kihamia (1979)" in 26
-replace N="individualss" in 26
+replace N="individuals" in 26
 replace country="Tanzania" in 26
 replace doses=4 in 26
 replace drug="Levamisole 2.5mg/kg" in 26
@@ -1645,7 +1645,7 @@ replace flag_sd=0 in 30
 
 
 **## Le Houng 2007b ============================================================
-replace trial="Le Huong 2007b" in 31 /*Individual RCT: MEB vs placebo*/
+replace trial="Le Huong 2007b" in 31 /*Individual RCT: Fe + MEB vs Fe*/
 replace name="Le Huong et al. (2007)" in 31
 replace N="individuals" in 31
 replace country="Vietnam" in 31
@@ -2010,7 +2010,6 @@ label var nmuacc2 "Final number of observations control group for MUAC analysis"
 gen 	TMSDGsamplehem =  inlist(trial, "Dossa 2001a", ///
 										"Dossa 2001b", ///
 										"Le Huong 2007a", ///
-										"Le Huong 2007b", ///
 										"Kruger 1996a", ///
 										"Awasthi 2000", ///
 										"Goto 2009", ///
@@ -2023,9 +2022,11 @@ lab var TMSDGsamplehem "TMSDG's hemoglobin sample"
 
 gen 	morehem = inlist(trial, "Kruger 1996b", ///
 								"Liu 2017", ///
+								"Le Huong 2007b", ///
 								"Ostwald 1984", ///
 								"Carmona-Fonseca 2015a", ///
 								"Carmona-Fonseca 2015b")
+								
 lab var morehem "Additional estimates on hemoglobin"
 
 foreach var in pehemob sehemob nhemobc nhemobt {
