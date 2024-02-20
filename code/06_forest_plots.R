@@ -188,6 +188,21 @@ for (out in c("weight (kg)", "height (cm)", "mid-upper arm circumference (cm)", 
     width = 1020,
     height = 1020
   )
+
+  plot <- dev.cur()
+
+  pdf(
+    file = paste0(
+      "output/figures/figure",
+      figno,
+      ".pdf"
+    ),
+    width = 1020/95,
+    height = 1020/95
+  )
+
+  dev.control("enable")
+
   par(mar=c(4,2,1,2))
 
   n1 <- nrow(low_prev)
@@ -371,5 +386,7 @@ for (out in c("weight (kg)", "height (cm)", "mid-upper arm circumference (cm)", 
   text( lo-len*(leftedge-0.48) , 1.3+nrow(all)+31+shift, "Country"              , pos=4)
   text( hi+len*rightedge       , 1.3+nrow(all)+31+shift, "Effect size (95% CI)", pos=2)
 
+  dev.copy(which = plot)
+  dev.off()
   dev.off()
 }

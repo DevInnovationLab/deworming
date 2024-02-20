@@ -163,7 +163,7 @@
 	* 12 - Number of significant trials
 	*--------------------------------------------------------
 	* USES: 	${data}/main/mda_tt_long.csv
-	* CREATES: 	${output_tables}/tableF.csv
+	* CREATES: 	${output_tables}/figureS1.png
 	rsource using "${code}/12_tableF.R"
 	
 	*--------------------------------------------------------

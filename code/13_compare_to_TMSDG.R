@@ -182,3 +182,13 @@ data %>%
     bg = "white"
   )
 
+  ggsave(
+    here(
+      "output/figures/figureS1.pdf"
+    ),
+    width = 7.5,
+    height = 4,
+    units = c("in"),
+    bg = "white"
+  )
+

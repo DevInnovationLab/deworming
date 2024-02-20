@@ -187,3 +187,11 @@ ggsave(
   bg = "white"
 )
 
+ggsave(
+  here("output/figures/metaforest.pdf"),
+  width = 7.5,
+  height = 3,
+  units = c("in"),
+  bg = "white"
+)
+

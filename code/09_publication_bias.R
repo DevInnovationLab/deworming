@@ -56,6 +56,16 @@ png(
   res = 300
 )
 
+plot <- dev.cur()
+
+pdf(
+  file = "output/figures/figureF1.pdf",
+  width = 8,
+  height = 8
+)
+
+dev.control("enable")
+
 par(mfrow = c(2,2))
 
 for(out in outcomes) {
@@ -71,6 +81,8 @@ for(out in outcomes) {
 
 }
 
+dev.copy(which = plot)
+dev.off()
 dev.off()
 
 # Tables =======================================================================

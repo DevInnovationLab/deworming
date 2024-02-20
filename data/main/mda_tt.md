@@ -6,7 +6,7 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 - **.dta version used:** 14
 - **Data signature:** 41:157(69111):2665737890:432295657
 - **Last saved by:** User info withheld, see option userinfo in command iesave.
-- **Last saved at:** 12:05:38 1 Sep 2023
+- **Last saved at:** 12:15:29 20 Feb 2024
 
 ## Variable type: String
 
@@ -176,7 +176,7 @@ This report was created by the Stata command iesave (version 7.2). Read more abo
 | Prevalence | "" | prevlabel | 33 | 3 | 0 | Worm Prevalence >= 50:20 Worm Prevalence < 20:7 20 <= Worm Prevalence < 50:6 |
 | Prevalence2 | "RECODE of Prevalence" | prev2label | 33 | 2 | 0 | Worm Prevalence >= 20:26 Worm Prevalence < 20:7 |
 | theight | "Type of estimate for height" | estimates | 27 | 3 | 0 | diff-in-diff:22 ANCOVA:4 endline comparison:1 |
-| themob | "Type of estimate for hemoglobin" | estimates | 15 | 3 | 0 | diff-in-diff:9 endline comparison:3 ANCOVA:3 |
+| themob | "Type of estimate for hemoglobin" | estimates | 15 | 3 | 0 | diff-in-diff:9 ANCOVA:3 endline comparison:3 |
 | tmuac | "Type of estimate for MUAC" | estimates | 7 | 2 | 0 | diff-in-diff:6 ANCOVA:1 |
 | tweight | "Type of estimate for weight" | estimates | 31 | 2 | 0 | diff-in-diff:26 ANCOVA:5 |
 
