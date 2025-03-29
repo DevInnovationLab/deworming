@@ -58,6 +58,10 @@
 	replace prevalence_exact = . 	if order == 2
 	replace trial = "" 				if order == 2
 	drop mda order stat N
+	
+	order trial nweight weight nheight height nmuac muac nhemob hemob prevalence_exact
+	recast double height muac hemob weight
+	format height muac hemob weight  %9.3f
 
 	export delimited using "${output_tables}/table1.csv", replace
 	export excel 	 using "${output}/Formatted tables.xlsx", sheet("t1_raw") sheetreplace
@@ -659,4 +663,49 @@ collapse (count) n = i (min) min = p (max) max = p (sum) significant, by(outcome
 export delimited using "${output_tables}/sectionD.csv", replace
 
 
+********************************************************************************
+**# For text: main results without Hall et al
+********************************************************************************
+
+{
+	use "${data}/main/mda_tt.dta", clear
+
+	drop if trial == "Hall 2006"
+	matrix R=J(36, 11, .)
+
+	local j 1
+	foreach var in weight muac height hemob {
+		foreach effect in random fixed {
+			local i 1
+			foreach condition in "(TMSDGsample`var' == 1 | more`var' == 1) & mda == 1" ///
+								 "(TMSDGsample`var' == 1 | more`var' == 1) & mda == 1 & Prevalence2 == 1" ///
+								 "(TMSDGsample`var' == 1 | more`var' == 1) & mda == 1 & Prevalence2 == 2" ///
+								 "(TMSDGsample`var' == 1 | more`var' == 1) & mda == 1 & Prevalence  == 3" ///
+								 `"(infected == 1 & trial != "Stephenson 1993 1d (I)")"' ///
+								 `"((TMSDGsample`var' == 1 | more`var' == 1) & mda == 1) | (infected == 1 & trial != "Stephenson 1993 1d (I)")"' {
+
+				metan pe`var'2 se`var'2 if `condition', `effect' nograph
+
+				matrix R[`i',`j']=r(ES)
+				local ++i
+				matrix R[`i',`j']=r(seES)
+				local ++i
+				matrix R[`i',`j']=r(p_z) /*disp normal(-abs(r(ES)/r(seES)))*2*/
+				local ++i
+				matrix R[`i',`j']=1-normal(r(ES)/r(seES))
+				local ++i
+				matrix R[`i',`j']=r(df)+1
+				local ++i
+				local ++i
+			}
+
+			local ++j
+		}
+		
+		local ++j
+	}
+
+	estout matrix(R) using "${output_tables}/table2_excluding_hall.csv", replace delimiter(",")
+
+}
 ********************************************************************************
